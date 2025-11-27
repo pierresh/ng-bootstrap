@@ -1,9 +1,17 @@
 import {Tree} from '@angular-devkit/schematics';
 import {SchematicTestRunner} from '@angular-devkit/schematics/testing';
-import {getFileContent} from '@schematics/angular/utility/test';
 
 import {createTestApp} from '../utils/testing';
 import * as messages from './messages';
+
+// Helper function to get file content (replaces @schematics/angular/utility/test)
+function getFileContent(tree: Tree, path: string): string {
+  const buffer = tree.read(path);
+  if (!buffer) {
+    throw new Error(`File ${path} does not exist`);
+  }
+  return buffer.toString('utf-8');
+}
 
 
 describe(`ng add '@ng-bootstrap/ng-bootstrap'`, () => {
