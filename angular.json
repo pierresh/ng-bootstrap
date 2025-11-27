@@ -328,7 +328,8 @@
             "tsConfig": "ssr-app/tsconfig.server.json",
             "progress": false,
             "sourceMap": true,
-            "optimization": false
+            "optimization": false,
+            "buildOptimizer": false
           },
           "configurations": {
             "production": {

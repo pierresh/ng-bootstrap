@@ -16,7 +16,9 @@ import {createTestApp} from '../utils/testing';
       // 'app' is the default application, so we're not passing '--project' option
       const options: Schema = {project: projectName};
       let tree = await createTestApp(runner, appOptions);
-      tree = await runner.runSchematicAsync('ng-add-setup-project', options, tree).toPromise();
+      const updatedTree = await runner.runSchematicAsync('ng-add-setup-project', options, tree).toPromise();
+      if (!updatedTree) throw new Error('Tree is undefined');
+      tree = updatedTree;
       const workspace = await getWorkspace(tree);
       const project = workspace.projects.get(projectName) !;
       return {tree, project};
@@ -34,8 +36,10 @@ import {createTestApp} from '../utils/testing';
 
       expect(tree.read(polyfillFilePath) !.toString()).not.toContain('@angular/localize');
 
-      tree = await runner.runSchematicAsync('ng-add-setup-project', projectName ? {project: projectName} : {}, tree)
+      const updatedTree = await runner.runSchematicAsync('ng-add-setup-project', projectName ? {project: projectName} : {}, tree)
                  .toPromise();
+      if (!updatedTree) throw new Error('Tree is undefined');
+      tree = updatedTree;
       expect(tree.read(polyfillFilePath) !.toString()).toContain('@angular/localize');
     });
 

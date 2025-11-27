@@ -25,6 +25,7 @@ describe(`ng add '@ng-bootstrap/ng-bootstrap'`, () => {
 
   it(`should add missing dependencies to 'package.json'`, async() => {
     const tree = await runner.runSchematicAsync('ng-add', {}, appTree).toPromise();
+    if (!tree) throw new Error('Tree is undefined');
     const {dependencies} = JSON.parse(getFileContent(tree, '/package.json'));
 
     expect(dependencies['@ng-bootstrap/ng-bootstrap']).toBeDefined('@ng-bootstrap/ng-bootstrap should be installed');
