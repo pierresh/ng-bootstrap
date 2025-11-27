@@ -97,7 +97,7 @@ const DEMOS = {
 const bsVersion = versions.bootstrap;
 
 export const ROUTES = [
-  {path: '', pathMatch: 'full', redirectTo: 'overview'}, {
+  {path: '', pathMatch: 'full' as const, redirectTo: 'overview'}, {
     path: '',
     component: ComponentWrapper,
     data: {

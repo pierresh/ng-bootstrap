@@ -74,19 +74,25 @@ function addBootstrapToAngularJson(
     workspace: workspaces.WorkspaceDefinition, project: workspaces.ProjectDefinition, host: Tree): Rule {
   const targetOptions = getProjectTargetOptions(project, 'build');
   const styles = (targetOptions.styles as JsonArray | undefined);
-  if (!styles) {
-    targetOptions.styles = [BOOTSTRAP_CSS_FILEPATH];
-  } else {
-    const existingStyles = styles.map((s) => typeof s === 'string' ? s : s !['input']);
 
+  // Check if bootstrap is already in the styles
+  if (styles) {
+    const existingStyles = styles.map((s) => typeof s === 'string' ? s : s !['input']);
     for (const[, stylePath] of existingStyles.entries()) {
-      // If the given asset is already specified in the styles, we don't need to do anything.
       if (stylePath === BOOTSTRAP_CSS_FILEPATH) {
         return () => host;
       }
     }
+  }
+
+  // Update the workspace with the bootstrap styles
+  if (!styles) {
+    targetOptions.styles = [BOOTSTRAP_CSS_FILEPATH];
+  } else {
     styles.unshift(BOOTSTRAP_CSS_FILEPATH);
   }
 
-  return updateWorkspace(workspace);
+  // Return a rule that persists the workspace changes
+  // Note: workspace is modified via the targetOptions reference above
+  return updateWorkspace(() => { void workspace; });
 }

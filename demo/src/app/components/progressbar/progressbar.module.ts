@@ -67,7 +67,7 @@ const DEMOS = {
 };
 
 export const ROUTES = [
-  { path: '', pathMatch: 'full', redirectTo: 'examples' },
+  { path: '', pathMatch: 'full' as const, redirectTo: 'examples' },
   {
     path: '',
     component: ComponentWrapper,

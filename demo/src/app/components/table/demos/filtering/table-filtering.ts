@@ -61,7 +61,7 @@ export class NgbdTableFiltering {
   constructor(pipe: DecimalPipe) {
     this.countries$ = this.filter.valueChanges.pipe(
       startWith(''),
-      map(text => search(text, pipe))
+      map(text => search(text || '', pipe))
     );
   }
 }
