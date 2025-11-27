@@ -140,14 +140,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo:build"
+            "buildTarget": "demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo:build:production"
+              "buildTarget": "demo:build:production"
             },
             "ie": {
-              "browserTarget": "demo:build:ie"
+              "buildTarget": "demo:build:ie"
             },
             "playwright": {
               "liveReload": false,
@@ -303,11 +303,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ssr-app:build"
+            "buildTarget": "ssr-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ssr-app:build:production"
+              "buildTarget": "ssr-app:build:production"
             }
           }
         },
@@ -397,11 +397,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "test-app:build"
+            "buildTarget": "test-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "test-app:build:production"
+              "buildTarget": "test-app:build:production"
             }
           }
         }

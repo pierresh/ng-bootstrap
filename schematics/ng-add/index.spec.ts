@@ -24,7 +24,7 @@ describe(`ng add '@ng-bootstrap/ng-bootstrap'`, () => {
   });
 
   it(`should add missing dependencies to 'package.json'`, async() => {
-    const tree = await runner.runSchematicAsync('ng-add', {}, appTree).toPromise();
+    const tree = await runner.runSchematic('ng-add', {}, appTree);
     if (!tree) throw new Error('Tree is undefined');
     const {dependencies} = JSON.parse(getFileContent(tree, '/package.json'));
 
@@ -36,7 +36,7 @@ describe(`ng add '@ng-bootstrap/ng-bootstrap'`, () => {
   it(`should report when specified 'project' is not found`, async() => {
     let message = '';
     try {
-      await runner.runSchematicAsync('ng-add', {project: 'test'}, appTree).toPromise();
+      await runner.runSchematic('ng-add', {project: 'test'}, appTree);
     } catch (e) {
       message = (e as Error).message;
     } finally {
