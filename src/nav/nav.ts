@@ -287,7 +287,6 @@ export class NgbNav implements AfterContentInit,
     if (this.roles !== 'tablist' || !this.keyboard) {
       return;
     }
-    /* eslint-disable-next-line deprecation/deprecation */
     const key = event.which;
     const enabledLinks = this.links.filter(link => !link.navItem.disabled);
     const {length} = enabledLinks;

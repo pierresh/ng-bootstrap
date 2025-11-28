@@ -50,7 +50,6 @@ export function ngbAutoClose(
       const escapes$ = fromEvent<KeyboardEvent>(document, 'keydown')
                            .pipe(
                                takeUntil(closed$),
-                               /* eslint-disable-next-line deprecation/deprecation */
                                filter(e => e.which === Key.Escape), tap(e => e.preventDefault()));
 
 

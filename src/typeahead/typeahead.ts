@@ -282,7 +282,6 @@ export class NgbTypeahead implements ControlValueAccessor,
       return;
     }
 
-    /* eslint-disable-next-line deprecation/deprecation */
     switch (event.which) {
       case Key.ArrowDown:
         event.preventDefault();

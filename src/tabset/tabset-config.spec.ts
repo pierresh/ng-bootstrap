@@ -1,4 +1,3 @@
-/* eslint-disable deprecation/deprecation */
 import {NgbTabsetConfig} from './tabset-config';
 
 describe('ngb-tabset-config', () => {

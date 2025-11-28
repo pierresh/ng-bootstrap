@@ -1,4 +1,3 @@
-/* eslint-disable deprecation/deprecation */
 import {Injectable} from '@angular/core';
 
 /**

@@ -338,7 +338,6 @@ export class NgbDropdown implements AfterContentInit, OnChanges, OnDestroy {
   }
 
   onKeyDown(event: KeyboardEvent) {
-    /* eslint-disable-next-line deprecation/deprecation */
     const key = event.which;
     const itemElements = this._getMenuElements();
 

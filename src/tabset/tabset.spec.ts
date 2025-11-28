@@ -1,4 +1,3 @@
-/* eslint-disable deprecation/deprecation */
 import {TestBed, ComponentFixture, inject} from '@angular/core/testing';
 import {createGenericTestComponent} from '../test/common';
 

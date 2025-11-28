@@ -129,7 +129,6 @@ export class NgbModalWindow implements OnInit,
       fromEvent<KeyboardEvent>(nativeElement, 'keydown')
           .pipe(
               takeUntil(this._closed$),
-              /* eslint-disable-next-line deprecation/deprecation */
               filter(e => e.which === Key.Escape))
           .subscribe(event => {
             if (this.keyboard) {

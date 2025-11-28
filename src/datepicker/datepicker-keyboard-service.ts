@@ -16,7 +16,6 @@ export class NgbDatepickerKeyboardService {
    */
   processKey(event: KeyboardEvent, datepicker: NgbDatepicker) {
     const {state, calendar} = datepicker;
-    /* eslint-disable-next-line deprecation/deprecation */
     switch (event.which) {
       case Key.PageUp:
         datepicker.focusDate(calendar.getPrev(state.focusedDate, event.shiftKey ? 'y' : 'm', 1));
