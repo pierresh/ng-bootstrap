@@ -1,4 +1,4 @@
-import {DOCUMENT} from '@angular/common';
+
 import {
   ApplicationRef,
   ComponentFactoryResolver,
@@ -9,7 +9,8 @@ import {
   Injector,
   NgZone,
   RendererFactory2,
-  TemplateRef
+  TemplateRef,
+  DOCUMENT
 } from '@angular/core';
 import {Subject} from 'rxjs';
 

@@ -1,4 +1,4 @@
-import {DOCUMENT} from '@angular/common';
+
 import {
   Component,
   ElementRef,
@@ -10,7 +10,8 @@ import {
   OnInit,
   Output,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
+  DOCUMENT
 } from '@angular/core';
 
 import {fromEvent, Observable, Subject, zip} from 'rxjs';

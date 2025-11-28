@@ -17,10 +17,11 @@ import {
   ViewContainerRef,
   ApplicationRef,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
+  DOCUMENT
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {DOCUMENT} from '@angular/common';
+
 import {BehaviorSubject, fromEvent, Observable, of, OperatorFunction, Subject, Subscription} from 'rxjs';
 import {map, switchMap, tap} from 'rxjs/operators';
 

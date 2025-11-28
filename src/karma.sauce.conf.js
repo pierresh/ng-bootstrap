@@ -41,7 +41,7 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-sauce-launcher'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser

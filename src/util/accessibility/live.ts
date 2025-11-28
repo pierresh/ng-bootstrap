@@ -1,5 +1,5 @@
-import {Injectable, Inject, InjectionToken, OnDestroy} from '@angular/core';
-import {DOCUMENT} from '@angular/common';
+import {Injectable, Inject, InjectionToken, OnDestroy, DOCUMENT} from '@angular/core';
+
 
 
 

@@ -16,9 +16,10 @@ import {
   Renderer2,
   SimpleChanges,
   Optional,
-  OnChanges
+  OnChanges,
+  DOCUMENT
 } from '@angular/core';
-import {DOCUMENT} from '@angular/common';
+
 import {fromEvent, Subject, Subscription} from 'rxjs';
 import {take} from 'rxjs/operators';
 

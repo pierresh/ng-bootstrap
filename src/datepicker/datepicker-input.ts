@@ -14,9 +14,10 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
-  ViewContainerRef
+  ViewContainerRef,
+  DOCUMENT
 } from '@angular/core';
-import {DOCUMENT, TranslationWidth} from '@angular/common';
+import {TranslationWidth} from '@angular/common';
 import {
   AbstractControl,
   ControlValueAccessor,

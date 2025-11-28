@@ -16,9 +16,10 @@ import {
   Output,
   QueryList,
   SimpleChanges,
-  TemplateRef
+  TemplateRef,
+  DOCUMENT
 } from '@angular/core';
-import {DOCUMENT} from '@angular/common';
+
 
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
