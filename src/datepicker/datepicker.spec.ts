@@ -1279,7 +1279,7 @@ class TestComponent {
   navigation = 'select';
   minDate: NgbDateStruct = {year: 2010, month: 1, day: 1};
   maxDate: NgbDateStruct = {year: 2020, month: 12, day: 31};
-  form = new FormGroup({control: new FormControl('', Validators.required)});
+  form = new FormGroup({control: new FormControl<any>('', Validators.required)});
   disabledForm = new FormGroup({control: new FormControl({value: null, disabled: true})});
   model;
   weekdays: boolean | TranslationWidth = true;
