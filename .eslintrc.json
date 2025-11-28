@@ -15,7 +15,6 @@
         "createDefaultProgram": true
       },
       "plugins": [
-        "deprecation",
         "unused-imports",
         "jasmine"
       ],
@@ -31,8 +30,8 @@
       "rules": {
         "semi": "off",
         "prefer-const": "off",
-        "deprecation/deprecation": "error",
         "jasmine/no-focused-tests": "error",
+        "@angular-eslint/prefer-standalone": "off",
         "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/directive-class-suffix": "off",
         "@angular-eslint/no-host-metadata-property": "off",

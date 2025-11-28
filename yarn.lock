@@ -218,17 +218,6 @@
     rxjs "7.8.1"
     source-map "0.7.4"
 
-"@angular-devkit/schematics@18.2.21":
-  version "18.2.21"
-  resolved "https://registry.npmmirror.com/@angular-devkit/schematics/-/schematics-18.2.21.tgz#070e57ffc50bdc83b0fc1482d4d43922b0a292b0"
-  integrity sha512-yuC2vN4VL48JhnsaOa9J/o0Jl+cxOklRNQp5J2/ypMuRROaVCrZAPiX+ChSHh++kHYMpj8+ggNrrUwRNfMKACQ==
-  dependencies:
-    "@angular-devkit/core" "18.2.21"
-    jsonc-parser "3.3.1"
-    magic-string "0.30.11"
-    ora "5.4.1"
-    rxjs "7.8.1"
-
 "@angular-devkit/schematics@19.2.19", "@angular-devkit/schematics@>= 19.0.0 < 20.0.0", "@angular-devkit/schematics@^19.2.19":
   version "19.2.19"
   resolved "https://registry.npmmirror.com/@angular-devkit/schematics/-/schematics-19.2.19.tgz#fc9b41372c2f080721673b357d7d8a5fd33d5941"
@@ -3386,22 +3375,13 @@
   optionalDependencies:
     fsevents "~2.3.2"
 
-"@schematics/angular@19.2.19":
+"@schematics/angular@19.2.19", "@schematics/angular@^19.2.19":
   version "19.2.19"
   resolved "https://registry.npmmirror.com/@schematics/angular/-/angular-19.2.19.tgz#43b3a035684490a4f00ef6b02a59d3ba02204233"
   integrity sha512-6/0pvbPCY4UHeB4lnM/5r250QX5gcLgOYbR5FdhFu+22mOPHfWpRc5tNuY9kCephDHzAHjo6fTW1vefOOmA4jw==
   dependencies:
     "@angular-devkit/core" "19.2.19"
     "@angular-devkit/schematics" "19.2.19"
-    jsonc-parser "3.3.1"
-
-"@schematics/angular@^18.2.21":
-  version "18.2.21"
-  resolved "https://registry.npmmirror.com/@schematics/angular/-/angular-18.2.21.tgz#f1368334b641807a5710473deaa82ba204495cb1"
-  integrity sha512-5Ai+NEflQZi67y4NsQ3o04iEp7zT0/BUFVCrJ3CueU3uYQGs8jrN1Lk6tvQ9c5HzGcTDrMXuTrCswyR9o6ecpA==
-  dependencies:
-    "@angular-devkit/core" "18.2.21"
-    "@angular-devkit/schematics" "18.2.21"
     jsonc-parser "3.3.1"
 
 "@sideway/address@^4.1.3":
