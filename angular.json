@@ -97,7 +97,6 @@
               "demo/src/style/demos.css"
             ],
             "scripts": [],
-            "aot": false,
             "extractLicenses": false,
             "sourceMap": true,
             "optimization": false,
@@ -115,7 +114,6 @@
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "budgets": [
                 {
@@ -191,10 +189,8 @@
             ],
             "scripts": [],
             "progress": false,
-            "aot": false,
             "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true
@@ -209,10 +205,8 @@
               ],
               "optimization": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
             }
           },
           "defaultConfiguration": ""
@@ -273,7 +267,6 @@
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [],
-            "aot": false,
             "extractLicenses": false,
             "sourceMap": true,
             "optimization": false,
@@ -297,7 +290,6 @@
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "progress": false
             }
