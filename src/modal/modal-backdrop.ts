@@ -25,7 +25,10 @@ export class NgbModalBackdrop implements OnInit {
   constructor(private _el: ElementRef<HTMLElement>, private _zone: NgZone) {}
 
   ngOnInit() {
-    this._zone.onStable.asObservable().pipe(take(1)).subscribe(() => {
+    new Observable(subscriber => {
+      const subscription = this._zone.onStable.subscribe(value => subscriber.next(value));
+      return () => subscription.unsubscribe();
+    }).pipe(take(1)).subscribe(() => {
       ngbRunTransition(this._zone, this._el.nativeElement, (element: HTMLElement, animation: boolean) => {
         if (animation) {
           reflow(element);

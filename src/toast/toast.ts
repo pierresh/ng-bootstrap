@@ -142,7 +142,10 @@ export class NgbToast implements AfterContentInit,
   }
 
   ngAfterContentInit() {
-    this._zone.onStable.asObservable().pipe(take(1)).subscribe(() => {
+    new Observable(subscriber => {
+      const subscription = this._zone.onStable.subscribe(value => subscriber.next(value));
+      return () => subscription.unsubscribe();
+    }).pipe(take(1)).subscribe(() => {
       this._init();
       this.show();
     });

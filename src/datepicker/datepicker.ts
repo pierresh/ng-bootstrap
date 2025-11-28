@@ -1,4 +1,4 @@
-import {fromEvent, merge, Subject} from 'rxjs';
+import {fromEvent, merge, Observable, Subject} from 'rxjs';
 import {filter, take, takeUntil} from 'rxjs/operators';
 import {
   AfterViewInit,
@@ -398,7 +398,10 @@ export class NgbDatepicker implements AfterViewInit,
   focusSelect(): void { this._service.focusSelect(); }
 
   focus() {
-    this._ngZone.onStable.asObservable().pipe(take(1)).subscribe(() => {
+    new Observable(subscriber => {
+      const subscription = this._ngZone.onStable.subscribe(value => subscriber.next(value));
+      return () => subscription.unsubscribe();
+    }).pipe(take(1)).subscribe(() => {
       const elementToFocus =
           this._elementRef.nativeElement.querySelector<HTMLDivElement>('div.ngb-dp-day[tabindex="0"]');
       if (elementToFocus) {

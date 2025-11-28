@@ -36,7 +36,10 @@ export class PopupService<T> {
     }
 
     const {nativeElement} = this._windowRef.location;
-    const transition$ = this._ngZone.onStable.pipe(
+    const transition$ = new Observable(subscriber => {
+      const subscription = this._ngZone.onStable.subscribe(value => subscriber.next(value));
+      return () => subscription.unsubscribe();
+    }).pipe(
         take(1), mergeMap(
                      () => ngbRunTransition(
                          this._ngZone, nativeElement, ({classList}) => classList.add('show'),

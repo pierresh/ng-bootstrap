@@ -32,6 +32,7 @@
         "prefer-const": "off",
         "jasmine/no-focused-tests": "error",
         "@angular-eslint/prefer-standalone": "off",
+        "@angular-eslint/prefer-inject": "off",
         "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/directive-class-suffix": "off",
         "@angular-eslint/no-host-metadata-property": "off",
@@ -40,7 +41,7 @@
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/adjacent-overload-signatures": "off",
-        "@typescript-eslint/semi": "error",
+        "@typescript-eslint/no-require-imports": "off",
         "unused-imports/no-unused-imports": "error"
       }
     },

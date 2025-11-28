@@ -257,7 +257,10 @@ export class NgbCarousel implements AfterContentChecked,
     if (isPlatformBrowser(this._platformId)) {
       this._ngZone.runOutsideAngular(() => {
         const hasNextSlide$ = combineLatest([
-                                this.slide.pipe(map(slideEvent => slideEvent.current), startWith(this.activeId)),
+                                new Observable(subscriber => {
+                                  const subscription = this.slide.subscribe(value => subscriber.next(value));
+                                  return () => subscription.unsubscribe();
+                                }).pipe(map(slideEvent => slideEvent.current), startWith(this.activeId)),
                                 this._wrap$, this.slides.changes.pipe(startWith(null))
                               ])
                                   .pipe(
@@ -292,7 +295,10 @@ export class NgbCarousel implements AfterContentChecked,
 
       // The following code need to be done asynchronously, after the dom becomes stable,
       // otherwise all changes will be undone.
-      this._ngZone.onStable.pipe(take(1)).subscribe(() => {
+      new Observable(subscriber => {
+        const subscription = this._ngZone.onStable.subscribe(value => subscriber.next(value));
+        return () => subscription.unsubscribe();
+      }).pipe(take(1)).subscribe(() => {
         for (const { id } of this.slides) {
           const element = this._getSlideElement(id);
           if (id === this.activeId) {

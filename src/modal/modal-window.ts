@@ -74,7 +74,10 @@ export class NgbModalWindow implements OnInit,
 
   ngOnInit() {
     this._elWithFocus = this._document.activeElement;
-    this._zone.onStable.asObservable().pipe(take(1)).subscribe(() => { this._show(); });
+    new Observable(subscriber => {
+      const subscription = this._zone.onStable.subscribe(value => subscriber.next(value));
+      return () => subscription.unsubscribe();
+    }).pipe(take(1)).subscribe(() => { this._show(); });
   }
 
   ngOnDestroy() { this._disableEventHandling(); }

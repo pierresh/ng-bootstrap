@@ -23,6 +23,7 @@ import {isString} from '../util/util';
 import {NgbAccordionConfig} from './accordion-config';
 import {ngbRunTransition} from '../util/transition/ngbTransition';
 import {ngbCollapsingTransition} from '../util/transition/ngbCollapseTransition';
+import {Observable} from 'rxjs';
 import {take} from 'rxjs/operators';
 
 let nextId = 0;
@@ -369,7 +370,10 @@ export class NgbAccordion implements AfterContentChecked {
     }
 
     // Setup the initial classes here
-    this._ngZone.onStable.pipe(take(1)).subscribe(() => {
+    new Observable(subscriber => {
+      const subscription = this._ngZone.onStable.subscribe(value => subscriber.next(value));
+      return () => subscription.unsubscribe();
+    }).pipe(take(1)).subscribe(() => {
       this.panels.forEach(panel => {
         const panelElement = panel.panelDiv;
         if (panelElement) {

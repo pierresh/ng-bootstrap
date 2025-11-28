@@ -20,7 +20,7 @@ import {
   DOCUMENT
 } from '@angular/core';
 
-import {fromEvent, Subject, Subscription} from 'rxjs';
+import {fromEvent, Observable, Subject, Subscription} from 'rxjs';
 import {take} from 'rxjs/operators';
 
 import {Placement, PlacementArray, positionElements} from '../util/positioning';
@@ -247,7 +247,10 @@ export class NgbDropdown implements AfterContentInit, OnChanges, OnDestroy {
   }
 
   ngAfterContentInit() {
-    this._ngZone.onStable.pipe(take(1)).subscribe(() => {
+    new Observable(subscriber => {
+      const subscription = this._ngZone.onStable.subscribe(value => subscriber.next(value));
+      return () => subscription.unsubscribe();
+    }).pipe(take(1)).subscribe(() => {
       this._applyPlacementClasses();
       if (this._open) {
         this._setCloseHandlers();

@@ -75,7 +75,7 @@ export class NgbCollapse implements OnInit, OnChanges {
    */
   toggle(open: boolean = this.collapsed) {
     this.collapsed = !open;
-    this.ngbCollapseChange.next(this.collapsed);
+    this.ngbCollapseChange.emit(this.collapsed);
     this._runTransitionWithEvents(this.collapsed, this.animation);
   }
 
