@@ -21,6 +21,7 @@ export {componentsList} from './side-nav/side-nav.component';
   imports: [CommonModule, RouterModule, NgbModule],
   exports: [
     CommonModule, RouterModule, ComponentWrapper, PageWrapper, NgbdPageHeaderComponent, NgbdFragment, SideNavComponent,
+    // eslint-disable-next-line deprecation/deprecation
     NgbdCodeComponent, NgbModule, FormsModule, ReactiveFormsModule, HttpClientModule, NgbdIcons
   ],
   declarations: [

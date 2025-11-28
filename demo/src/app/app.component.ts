@@ -1,5 +1,5 @@
 import {ViewportScroller} from '@angular/common';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {Component, NgZone, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {filter, pluck} from 'rxjs/operators';

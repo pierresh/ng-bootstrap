@@ -6,7 +6,7 @@ import {
   NgbCalendarBuddhist
 } from '@ng-bootstrap/ng-bootstrap';
 import localeThai from '@angular/common/locales/th';
-import { getLocaleDayNames, FormStyle, TranslationWidth, getLocaleMonthNames, formatDate, registerLocaleData } from '@angular/common';
+import { formatDate, registerLocaleData } from '@angular/common';
 
 @Injectable()
 export class NgbDatepickerI18nBuddhist extends NgbDatepickerI18n {
@@ -21,11 +21,19 @@ export class NgbDatepickerI18nBuddhist extends NgbDatepickerI18n {
 
     registerLocaleData(localeThai);
 
-    const weekdaysStartingOnSunday = getLocaleDayNames(this._locale, FormStyle.Standalone, TranslationWidth.Short);
+    // Use Intl API for weekday names
+    const weekdayFormatter = new Intl.DateTimeFormat(this._locale, { weekday: 'short' });
+    const weekdaysStartingOnSunday = Array.from({ length: 7 }, (_, i) => {
+      const date = new Date(2021, 0, 3 + i); // January 3, 2021 is Sunday
+      return weekdayFormatter.format(date);
+    });
     this._weekdaysShort = weekdaysStartingOnSunday.map((day, index) => weekdaysStartingOnSunday[(index + 1) % 7]);
 
-    this._monthsShort = getLocaleMonthNames(this._locale, FormStyle.Standalone, TranslationWidth.Abbreviated);
-    this._monthsFull = getLocaleMonthNames(this._locale, FormStyle.Standalone, TranslationWidth.Wide);
+    // Use Intl API for month names
+    const monthShortFormatter = new Intl.DateTimeFormat(this._locale, { month: 'short' });
+    const monthFullFormatter = new Intl.DateTimeFormat(this._locale, { month: 'long' });
+    this._monthsShort = Array.from({ length: 12 }, (_, i) => monthShortFormatter.format(new Date(2021, i, 1)));
+    this._monthsFull = Array.from({ length: 12 }, (_, i) => monthFullFormatter.format(new Date(2021, i, 1)));
   }
 
   getMonthShortName(month: number): string { return this._monthsShort[month - 1] || ''; }

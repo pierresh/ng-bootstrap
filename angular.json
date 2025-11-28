@@ -25,8 +25,8 @@
           "options": {
             "fileReplacements": [
               {
-                "src": "src/environment.ts",
-                "replaceWith": "src/environment.test.ts"
+                "replace": "src/environment.ts",
+                "with": "src/environment.test.ts"
               }
             ],
             "main": "src/test.ts",
@@ -68,8 +68,11 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "demo/webpack.config.js"
+            },
             "outputPath": "demo/dist",
             "index": "demo/src/public/index.html",
             "main": "demo/src/main.ts",
@@ -95,9 +98,7 @@
             ],
             "scripts": [],
             "aot": false,
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true
@@ -106,8 +107,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "src": "demo/src/environments/environment.ts",
-                  "replaceWith": "demo/src/environments/environment.prod.ts"
+                  "replace": "demo/src/environments/environment.ts",
+                  "with": "demo/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -116,8 +117,6 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -138,7 +137,7 @@
           "defaultConfiguration": ""
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "buildTarget": "demo:build"
           },
@@ -252,12 +251,15 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "ssr-app/dist/browser",
+            "outputPath": {
+              "base": "ssr-app/dist"
+            },
             "index": "ssr-app/src/index.html",
-            "main": "ssr-app/src/main.ts",
-            "polyfills": "ssr-app/src/polyfills.ts",
+            "polyfills": [
+              "ssr-app/src/polyfills.ts"
+            ],
             "tsConfig": "ssr-app/tsconfig.json",
             "assets": [
               "ssr-app/src/favicon.ico",
@@ -272,12 +274,16 @@
             ],
             "scripts": [],
             "aot": false,
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "browser": "ssr-app/src/main.ts",
+            "server": "ssr-app/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "ssr-app/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -293,8 +299,6 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "progress": false
             }
           },
@@ -319,30 +323,6 @@
             ]
           }
         }
-,
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "ssr-app/dist/server",
-            "main": "ssr-app/server.ts",
-            "tsConfig": "ssr-app/tsconfig.server.json",
-            "progress": false,
-            "sourceMap": true,
-            "optimization": false,
-            "buildOptimizer": false
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "ssr-app/src/environments/environment.ts",
-                  "with": "ssr-app/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          },
-          "defaultConfiguration": ""
-        }
       }
     },
     "test-app": {
@@ -353,12 +333,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "test-app/dist",
+            "outputPath": {
+              "base": "test-app/dist"
+            },
             "index": "test-app/src/index.html",
-            "main": "test-app/src/main.ts",
-            "polyfills": "test-app/src/polyfills.ts",
+            "polyfills": [
+              "test-app/src/polyfills.ts"
+            ],
             "tsConfig": "test-app/tsconfig.json",
             "assets": [
               "test-app/src/favicon.ico"
@@ -368,12 +351,11 @@
               "test-app/src/styles.css"
             ],
             "scripts": [],
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "browser": "test-app/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -387,9 +369,7 @@
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "extractLicenses": true
             }
           },
           "defaultConfiguration": ""
