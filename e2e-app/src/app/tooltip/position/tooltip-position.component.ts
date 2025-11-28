@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
 
-@Component({templateUrl: './tooltip-position.component.html'})
+@Component({
+    templateUrl: './tooltip-position.component.html',
+    standalone: false
+})
 export class TooltipPositionComponent {
   flexPosition = 'justify-content-start';
   content = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';

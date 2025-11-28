@@ -3,19 +3,20 @@ import {NgbDate} from './ngb-date';
 import {NgbDatepickerI18n} from './datepicker-i18n';
 
 @Component({
-  selector: '[ngbDatepickerDayView]',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./datepicker-day-view.scss'],
-  host: {
-    'class': 'btn-light',
-    '[class.bg-primary]': 'selected',
-    '[class.text-white]': 'selected',
-    '[class.text-muted]': 'isMuted()',
-    '[class.outside]': 'isMuted()',
-    '[class.active]': 'focused'
-  },
-  template: `{{ i18n.getDayNumerals(date) }}`
+    selector: '[ngbDatepickerDayView]',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./datepicker-day-view.scss'],
+    host: {
+        'class': 'btn-light',
+        '[class.bg-primary]': 'selected',
+        '[class.text-white]': 'selected',
+        '[class.text-muted]': 'isMuted()',
+        '[class.outside]': 'isMuted()',
+        '[class.active]': 'focused'
+    },
+    template: `{{ i18n.getDayNumerals(date) }}`,
+    standalone: false
 })
 export class NgbDatepickerDayView {
   @Input() currentMonth: number;

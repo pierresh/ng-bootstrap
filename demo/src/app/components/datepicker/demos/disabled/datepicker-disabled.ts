@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {NgbCalendar, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-datepicker-disabled',
-  templateUrl: './datepicker-disabled.html'
+    selector: 'ngbd-datepicker-disabled',
+    templateUrl: './datepicker-disabled.html',
+    standalone: false
 })
 export class NgbdDatepickerDisabled {
 

@@ -128,7 +128,10 @@ describe('ngb-datepicker-navigation-select', () => {
 
 });
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   date = new NgbDate(2016, 8, 22);
   months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

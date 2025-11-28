@@ -23,24 +23,25 @@ import {ngbRunTransition, NgbTransitionOptions} from '../util/transition/ngbTran
 import {reflow} from '../util/util';
 
 @Component({
-  selector: 'ngb-modal-window',
-  host: {
-    '[class]': '"modal d-block" + (windowClass ? " " + windowClass : "")',
-    '[class.fade]': 'animation',
-    'role': 'dialog',
-    'tabindex': '-1',
-    '[attr.aria-modal]': 'true',
-    '[attr.aria-labelledby]': 'ariaLabelledBy',
-    '[attr.aria-describedby]': 'ariaDescribedBy'
-  },
-  template: `
+    selector: 'ngb-modal-window',
+    host: {
+        '[class]': '"modal d-block" + (windowClass ? " " + windowClass : "")',
+        '[class.fade]': 'animation',
+        'role': 'dialog',
+        'tabindex': '-1',
+        '[attr.aria-modal]': 'true',
+        '[attr.aria-labelledby]': 'ariaLabelledBy',
+        '[attr.aria-describedby]': 'ariaDescribedBy'
+    },
+    template: `
     <div #dialog [class]="'modal-dialog' + (size ? ' modal-' + size : '') + (centered ? ' modal-dialog-centered' : '') +
      (scrollable ? ' modal-dialog-scrollable' : '') + (modalDialogClass ? ' ' + modalDialogClass : '')" role="document">
         <div class="modal-content"><ng-content></ng-content></div>
     </div>
     `,
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./modal.scss']
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./modal.scss'],
+    standalone: false
 })
 export class NgbModalWindow implements OnInit,
     OnDestroy {

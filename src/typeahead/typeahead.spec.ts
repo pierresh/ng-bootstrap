@@ -975,7 +975,10 @@ describe('ngb-typeahead', () => {
   }
 });
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   private _strings = ['one', 'one more', 'two', 'three'];
   private _objects =
@@ -1032,7 +1035,10 @@ class TestComponent {
   onSelect($event) { this.selectEventValue = $event; }
 }
 
-@Component({selector: 'test-onpush-cmp', changeDetection: ChangeDetectionStrategy.OnPush, template: ''})
+@Component({
+    selector: 'test-onpush-cmp', changeDetection: ChangeDetectionStrategy.OnPush, template: '',
+    standalone: false
+})
 class TestOnPushComponent {
   private _strings = ['one', 'one more', 'two', 'three'];
 
@@ -1041,7 +1047,10 @@ class TestOnPushComponent {
   }
 }
 
-@Component({selector: 'test-async-cmp', template: ''})
+@Component({
+    selector: 'test-async-cmp', template: '',
+    standalone: false
+})
 class TestAsyncComponent {
   private _strings = ['one', 'one more', 'two', 'three'];
 

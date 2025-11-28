@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ngbd-tooltip-tplwithcontext',
-  templateUrl: './tooltip-tplwithcontext.html'
+    selector: 'ngbd-tooltip-tplwithcontext',
+    templateUrl: './tooltip-tplwithcontext.html',
+    standalone: false
 })
 export class NgbdTooltipTplwithcontext {
   name = 'World';

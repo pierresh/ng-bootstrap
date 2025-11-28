@@ -3,8 +3,9 @@ import {NgbdPageHeaderComponent} from './page-header.component';
 import {TableOfContents} from '../component-wrapper/component-wrapper.component';
 
 @Component({
-  selector: 'ngbd-page-wrapper',
-  templateUrl: './page-wrapper.component.html'
+    selector: 'ngbd-page-wrapper',
+    templateUrl: './page-wrapper.component.html',
+    standalone: false
 })
 export class PageWrapper {
   @Input() pageTitle: string;

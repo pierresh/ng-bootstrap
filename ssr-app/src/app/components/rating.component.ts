@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'rating-component',
-  styles: [`
+    selector: 'rating-component',
+    styles: [`
     .star {
       position: relative;
       display: inline-block;
@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
       color: red;
     }
   `],
-  template: `
+    template: `
     <ng-template #t let-fill="fill">
       <span class="star" [class.full]="fill === 100">
         <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
@@ -27,7 +27,8 @@ import { Component } from '@angular/core';
     </ng-template>
 
     <ngb-rating [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
-  `
+  `,
+    standalone: false
 })
 export class RatingComponent {
   currentRate = 3.14;

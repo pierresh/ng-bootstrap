@@ -13,9 +13,10 @@ const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'C
   'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 @Component({
-  selector: 'ngbd-typeahead-focus',
-  templateUrl: './typeahead-focus.html',
-  styles: [`.form-control { width: 300px; }`]
+    selector: 'ngbd-typeahead-focus',
+    templateUrl: './typeahead-focus.html',
+    styles: [`.form-control { width: 300px; }`],
+    standalone: false
 })
 export class NgbdTypeaheadFocus {
   model: any;

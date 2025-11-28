@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'ngbd-timepicker-validation',
-  templateUrl: './timepicker-validation.html'
+    selector: 'ngbd-timepicker-validation',
+    templateUrl: './timepicker-validation.html',
+    standalone: false
 })
 export class NgbdTimepickerValidation {
 

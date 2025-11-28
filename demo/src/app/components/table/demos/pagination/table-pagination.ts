@@ -90,8 +90,9 @@ const COUNTRIES: Country[] = [
 ];
 
 @Component({
-  selector: 'ngbd-table-pagination',
-  templateUrl: './table-pagination.html'
+    selector: 'ngbd-table-pagination',
+    templateUrl: './table-pagination.html',
+    standalone: false
 })
 export class NgbdTablePagination {
 

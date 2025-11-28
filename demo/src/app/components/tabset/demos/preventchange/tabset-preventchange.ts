@@ -3,8 +3,9 @@ import {Component} from '@angular/core';
 import {NgbTabChangeEvent} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-tabset-preventchange',
-  templateUrl: './tabset-preventchange.html'
+    selector: 'ngbd-tabset-preventchange',
+    templateUrl: './tabset-preventchange.html',
+    standalone: false
 })
 export class NgbdTabsetPreventchange {
     public beforeChange($event: NgbTabChangeEvent) {

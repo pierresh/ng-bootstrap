@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  template: `
+    selector: 'app-root',
+    template: `
     <div class="container p-5">
       <h1>ng-bootstrap SSR test application</h1>
 
@@ -54,7 +54,8 @@ import { Component } from '@angular/core';
       <h2 class="mt-5">Typeahead</h2>
       <typeahead-component></typeahead-component>
     </div>
-  `
+  `,
+    standalone: false
 })
 export class AppComponent {
 }

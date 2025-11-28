@@ -4,11 +4,12 @@ import {ISnippet} from './snippet';
 import {CodeHighlightService} from './code-highlight.service';
 
 @Component({
-  selector: 'ngbd-code',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
+    selector: 'ngbd-code',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: `
     <pre class="language-{{ snippet.lang }}"><code #code class="language-{{ snippet.lang }}"></code></pre>
-  `
+  `,
+    standalone: false
 })
 export class NgbdCodeComponent implements AfterViewInit {
 

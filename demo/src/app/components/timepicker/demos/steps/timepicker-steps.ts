@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-timepicker-steps',
-  templateUrl: './timepicker-steps.html'
+    selector: 'ngbd-timepicker-steps',
+    templateUrl: './timepicker-steps.html',
+    standalone: false
 })
 export class NgbdTimepickerSteps {
   time: NgbTimeStruct = {hour: 13, minute: 30, second: 0};

@@ -13,8 +13,8 @@ function getDismissReason(reason: any): string {
 }
 
 @Component({
-  selector: 'modal-component',
-  template: `
+    selector: 'modal-component',
+    template: `
     <ng-template #content let-modal>
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Modal</h4>
@@ -33,7 +33,8 @@ function getDismissReason(reason: any): string {
     <button class="btn btn-outline-primary" (click)="open(content)">Open modal</button>
 
     <pre>{{closeResult}}</pre>
-  `
+  `,
+    standalone: false
 })
 export class ModalComponent {
   closeResult: string;

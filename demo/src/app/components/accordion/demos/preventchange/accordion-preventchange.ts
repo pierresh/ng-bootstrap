@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {NgbPanelChangeEvent} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-accordion-preventchange',
-  templateUrl: './accordion-preventchange.html',
+    selector: 'ngbd-accordion-preventchange',
+    templateUrl: './accordion-preventchange.html',
+    standalone: false
 })
 export class NgbdAccordionPreventchange {
   public beforeChange($event: NgbPanelChangeEvent) {

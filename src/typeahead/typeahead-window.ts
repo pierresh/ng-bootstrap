@@ -23,16 +23,16 @@ export interface ResultTemplateContext {
 }
 
 @Component({
-  selector: 'ngb-typeahead-window',
-  exportAs: 'ngbTypeaheadWindow',
-  encapsulation: ViewEncapsulation.None,
-  host: {
-    '(mousedown)': '$event.preventDefault()',
-    '[class]': '"dropdown-menu show" + (popupClass ? " " + popupClass : "")',
-    'role': 'listbox',
-    '[id]': 'id'
-  },
-  template: `
+    selector: 'ngb-typeahead-window',
+    exportAs: 'ngbTypeaheadWindow',
+    encapsulation: ViewEncapsulation.None,
+    host: {
+        '(mousedown)': '$event.preventDefault()',
+        '[class]': '"dropdown-menu show" + (popupClass ? " " + popupClass : "")',
+        'role': 'listbox',
+        '[id]': 'id'
+    },
+    template: `
     <ng-template #rt let-result="result" let-term="term" let-formatter="formatter">
       <ngb-highlight [result]="formatter(result)" [term]="term"></ngb-highlight>
     </ng-template>
@@ -46,7 +46,8 @@ export interface ResultTemplateContext {
           [ngTemplateOutletContext]="{result: result, term: term, formatter: formatter}"></ng-template>
       </button>
     </ng-template>
-  `
+  `,
+    standalone: false
 })
 export class NgbTypeaheadWindow implements OnInit {
   activeIdx = 0;

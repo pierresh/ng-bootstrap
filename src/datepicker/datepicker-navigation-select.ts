@@ -15,11 +15,11 @@ import {toInteger} from '../util/util';
 import {NgbDatepickerI18n} from './datepicker-i18n';
 
 @Component({
-  selector: 'ngb-datepicker-navigation-select',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./datepicker-navigation-select.scss'],
-  template: `
+    selector: 'ngb-datepicker-navigation-select',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./datepicker-navigation-select.scss'],
+    template: `
     <select #month
       [disabled]="disabled"
       class="custom-select"
@@ -36,7 +36,8 @@ import {NgbDatepickerI18n} from './datepicker-i18n';
       (change)="changeYear($any($event).target.value)">
         <option *ngFor="let y of years" [value]="y">{{ i18n.getYearNumerals(y) }}</option>
     </select>
-  `
+  `,
+    standalone: false
 })
 export class NgbDatepickerNavigationSelect implements AfterViewChecked {
   @Input() date: NgbDate;

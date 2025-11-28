@@ -8,9 +8,9 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-datepicker-hebrew',
-  templateUrl: './datepicker-hebrew.html',
-  styles: [`
+    selector: 'ngbd-datepicker-hebrew',
+    templateUrl: './datepicker-hebrew.html',
+    styles: [`
     .hebrew-day {
       text-align: right;
       padding: 0.25rem 0.65rem 0.25rem 0.25rem;
@@ -34,10 +34,11 @@ import {
       direction: ltr;
     }
   `],
-  providers: [
-    {provide: NgbCalendar, useClass: NgbCalendarHebrew},
-    {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nHebrew}
-  ]
+    providers: [
+        { provide: NgbCalendar, useClass: NgbCalendarHebrew },
+        { provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nHebrew }
+    ],
+    standalone: false
 })
 export class NgbdDatepickerHebrew {
 

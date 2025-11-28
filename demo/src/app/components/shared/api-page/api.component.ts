@@ -32,12 +32,13 @@ export function getApis(component: string) {
 }
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: `
     <ngbd-api-docs *ngFor="let component of components" [directive]="component"></ngbd-api-docs>
     <ngbd-api-docs-class *ngFor="let klass of classes" [type]="klass"></ngbd-api-docs-class>
     <ngbd-api-docs-config *ngFor="let config of configs" [type]="config"></ngbd-api-docs-config>
-  `
+  `,
+    standalone: false
 })
 export class NgbdApiPage {
   classes: string[];

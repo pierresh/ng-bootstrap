@@ -3,7 +3,10 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-@Component({templateUrl: './modal-nesting.component.html'})
+@Component({
+    templateUrl: './modal-nesting.component.html',
+    standalone: false
+})
 export class ModalNestingComponent {
   constructor(private modalService: NgbModal) {}
 

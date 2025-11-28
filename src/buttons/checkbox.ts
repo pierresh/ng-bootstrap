@@ -10,15 +10,16 @@ import {NgbButtonLabel} from './label';
  * either in a reactive or template-driven way.
  */
 @Directive({
-  selector: '[ngbButton][type=checkbox]',
-  host: {
-    '[checked]': 'checked',
-    '[disabled]': 'disabled',
-    '(change)': 'onInputChange($event)',
-    '(focus)': 'focused = true',
-    '(blur)': 'focused = false'
-  },
-  providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbCheckBox), multi: true}]
+    selector: '[ngbButton][type=checkbox]',
+    host: {
+        '[checked]': 'checked',
+        '[disabled]': 'disabled',
+        '(change)': 'onInputChange($event)',
+        '(focus)': 'focused = true',
+        '(blur)': 'focused = false'
+    },
+    providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbCheckBox), multi: true }],
+    standalone: false
 })
 export class NgbCheckBox implements ControlValueAccessor {
   static ngAcceptInputType_disabled: boolean | '';

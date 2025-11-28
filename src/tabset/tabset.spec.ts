@@ -587,7 +587,10 @@ describe('ngb-tabset', () => {
   });
 });
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   activeTabId: string;
   changeCallback = (event: any) => {};

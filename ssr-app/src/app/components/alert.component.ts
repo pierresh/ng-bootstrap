@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'alert-component',
-  template: `
+    selector: 'alert-component',
+    template: `
     <ngb-alert [dismissible]="false">Sample alert here</ngb-alert>
     <ngb-alert>Sample dismissible alert here</ngb-alert>
-  `
+  `,
+    standalone: false
 })
 export class AlertComponent {
 }

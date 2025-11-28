@@ -7,15 +7,16 @@ import {ngbRunTransition} from '../util/transition/ngbTransition';
 import {reflow} from '../util/util';
 
 @Component({
-  selector: 'ngb-modal-backdrop',
-  encapsulation: ViewEncapsulation.None,
-  template: '',
-  host: {
-    '[class]': '"modal-backdrop" + (backdropClass ? " " + backdropClass : "")',
-    '[class.show]': '!animation',
-    '[class.fade]': 'animation',
-    'style': 'z-index: 1050'
-  }
+    selector: 'ngb-modal-backdrop',
+    encapsulation: ViewEncapsulation.None,
+    template: '',
+    host: {
+        '[class]': '"modal-backdrop" + (backdropClass ? " " + backdropClass : "")',
+        '[class.show]': '!animation',
+        '[class.fade]': 'animation',
+        'style': 'z-index: 1050'
+    },
+    standalone: false
 })
 export class NgbModalBackdrop implements OnInit {
   @Input() animation: boolean;

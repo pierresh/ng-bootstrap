@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'ngbd-buttons-checkboxreactive',
-  templateUrl: './buttons-checkboxreactive.html'
+    selector: 'ngbd-buttons-checkboxreactive',
+    templateUrl: './buttons-checkboxreactive.html',
+    standalone: false
 })
 export class NgbdButtonsCheckboxreactive {
   public checkboxGroupForm: FormGroup;

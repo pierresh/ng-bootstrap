@@ -3,9 +3,11 @@ import {Component} from '@angular/core';
 import {NgbTabsetConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-tabset-config',
-  templateUrl: './tabset-config.html',
-  providers: [NgbTabsetConfig] // add NgbTabsetConfig to the component providers
+    selector: 'ngbd-tabset-config',
+    templateUrl: './tabset-config.html',
+    providers: [NgbTabsetConfig] // add NgbTabsetConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdTabsetConfig {
   constructor(config: NgbTabsetConfig) {

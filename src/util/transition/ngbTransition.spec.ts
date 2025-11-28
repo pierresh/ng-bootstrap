@@ -476,11 +476,11 @@ if (isBrowserVisible('ngbRunTransition')) {
   describe('ngbRunTransition nesting', () => {
 
     @Component({
-      template: `
+    template: `
       <div #outer class="ngb-test-outer" (transitionend)="onTransitionOuterEnd()">
         <div #inner class="ngb-test-inner" (transitionend)="onTransitionInnerEnd()"></div>
       </div>`,
-      styles: [`
+    styles: [`
     .ngb-test-outer {
       width: 100px;
       height: 100px;
@@ -494,8 +494,9 @@ if (isBrowserVisible('ngbRunTransition')) {
       background-color: blue;
       opacity: 1;
     }
-  `]
-    })
+  `],
+    standalone: false
+})
     class TestComponentNested {
       @ViewChild('outer') outer: ElementRef<HTMLDivElement>;
       @ViewChild('inner') inner: ElementRef<HTMLDivElement>;
@@ -544,8 +545,9 @@ if (isBrowserVisible('ngbRunTransition')) {
 }
 
 @Component({
-  template: `
-      <div #element class="ngb-test-transition ngb-test-show" (transitionend)="onTransitionEnd()"></div>`
+    template: `
+      <div #element class="ngb-test-transition ngb-test-show" (transitionend)="onTransitionEnd()"></div>`,
+    standalone: false
 })
 class TestComponent {
   @ViewChild('element') element: ElementRef<HTMLDivElement>;

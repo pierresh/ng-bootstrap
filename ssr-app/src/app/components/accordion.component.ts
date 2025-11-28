@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'accordion-component',
-  template: `
+    selector: 'accordion-component',
+    template: `
     <ngb-accordion activeIds="ngb-panel-0">
       <ngb-panel title="Title one">
         <ng-template ngbPanelContent>Panel one</ng-template>
@@ -17,7 +17,8 @@ import { Component } from '@angular/core';
         <ng-template ngbPanelContent>Panel three</ng-template>
       </ngb-panel>
     </ngb-accordion>
-  `
+  `,
+    standalone: false
 })
 export class AccordionComponent {
 }

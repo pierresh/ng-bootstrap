@@ -16,7 +16,10 @@ import {NgbCollapseConfig} from './collapse-config';
 /**
  * A directive to provide a simple way of hiding and showing elements on the page.
  */
-@Directive({selector: '[ngbCollapse]', exportAs: 'ngbCollapse'})
+@Directive({
+    selector: '[ngbCollapse]', exportAs: 'ngbCollapse',
+    standalone: false
+})
 export class NgbCollapse implements OnInit, OnChanges {
   /**
    * If `true`, collapse will be animated.

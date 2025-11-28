@@ -206,7 +206,7 @@ describe('Positioning', () => {
 });
 
 @Component({
-  template: `
+    template: `
     <div
       id="element"
       style="display: inline-block; height: 200px; width: 300px; margin-top: 100px; margin-left: 150px"
@@ -215,7 +215,8 @@ describe('Positioning', () => {
       id="targetElement"
       style="position:absolute;top:0;left:0; display: inline-block; height: 50px; width: 100px; margin-top: 10px; margin-left: 20px"
     ></div>
-`
+`,
+    standalone: false
 })
 export class TestComponent {
 }

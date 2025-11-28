@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-modal-config',
-  templateUrl: './modal-config.html',
-  // add NgbModalConfig and NgbModal to the component providers
-  providers: [NgbModalConfig, NgbModal]
+    selector: 'ngbd-modal-config',
+    templateUrl: './modal-config.html',
+    // add NgbModalConfig and NgbModal to the component providers
+    providers: [NgbModalConfig, NgbModal],
+    standalone: false
 })
 export class NgbdModalConfig {
   constructor(config: NgbModalConfig, private modalService: NgbModal) {

@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ngbd-popover-visibility',
-  templateUrl: './popover-visibility.html'
+    selector: 'ngbd-popover-visibility',
+    templateUrl: './popover-visibility.html',
+    standalone: false
 })
 export class NgbdPopoverVisibility {
   lastShown: Date;

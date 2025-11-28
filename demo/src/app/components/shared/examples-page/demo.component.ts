@@ -11,9 +11,10 @@ const TYPES: {[name: string]: string} = {
 };
 
 @Component({
-  selector: 'ngbd-widget-demo',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './demo.component.html'
+    selector: 'ngbd-widget-demo',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './demo.component.html',
+    standalone: false
 })
 export class NgbdWidgetDemoComponent {
   @Input() demoTitle: string;

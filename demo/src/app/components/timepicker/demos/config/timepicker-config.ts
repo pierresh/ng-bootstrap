@@ -3,9 +3,11 @@ import {NgbTimepickerConfig} from '@ng-bootstrap/ng-bootstrap';
 import {NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-timepicker-config',
-  templateUrl: './timepicker-config.html',
-  providers: [NgbTimepickerConfig] // add NgbTimepickerConfig to the component providers
+    selector: 'ngbd-timepicker-config',
+    templateUrl: './timepicker-config.html',
+    providers: [NgbTimepickerConfig] // add NgbTimepickerConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdTimepickerConfig {
   time: NgbTimeStruct = {hour: 13, minute: 30, second: 0};

@@ -8,9 +8,10 @@ import {versions} from '../../../../environments/versions';
 
 
 @Component({
-  selector: 'ngbd-toast-overview',
-  templateUrl: './toast-overview.component.html',
-  host: {'[class.overview]': 'true'}
+    selector: 'ngbd-toast-overview',
+    templateUrl: './toast-overview.component.html',
+    host: { '[class.overview]': 'true' },
+    standalone: false
 })
 export class NgbdToastOverviewComponent {
 

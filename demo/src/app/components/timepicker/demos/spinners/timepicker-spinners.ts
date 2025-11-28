@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ngbd-timepicker-spinners',
-  templateUrl: './timepicker-spinners.html'
+    selector: 'ngbd-timepicker-spinners',
+    templateUrl: './timepicker-spinners.html',
+    standalone: false
 })
 export class NgbdTimepickerSpinners {
   time = {hour: 13, minute: 30};

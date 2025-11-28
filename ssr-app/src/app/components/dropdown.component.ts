@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'dropdown-component',
-  template: `
+    selector: 'dropdown-component',
+    template: `
     <div ngbDropdown class="d-inline-block">
       <button class="btn btn-outline-primary" id="dropdown1" ngbDropdownToggle>Toggle dropdown</button>
       <div ngbDropdownMenu aria-labelledby="dropdown1">
@@ -10,7 +10,8 @@ import { Component } from '@angular/core';
         <button ngbDropdownItem>Action two</button>
       </div>
     </div>
-  `
+  `,
+    standalone: false
 })
 export class DropdownComponent {
 }

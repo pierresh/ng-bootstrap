@@ -49,9 +49,10 @@ function search(text: string, pipe: PipeTransform): Country[] {
 }
 
 @Component({
-  selector: 'ngbd-table-filtering',
-  templateUrl: './table-filtering.html',
-  providers: [DecimalPipe]
+    selector: 'ngbd-table-filtering',
+    templateUrl: './table-filtering.html',
+    providers: [DecimalPipe],
+    standalone: false
 })
 export class NgbdTableFiltering {
 

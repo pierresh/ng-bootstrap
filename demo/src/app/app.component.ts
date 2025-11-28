@@ -10,7 +10,10 @@ import {Analytics} from './shared/analytics/analytics';
 import {of} from 'rxjs';
 
 
-@Component({selector: 'ngbd-app', templateUrl: './app.component.html'})
+@Component({
+    selector: 'ngbd-app', templateUrl: './app.component.html',
+    standalone: false
+})
 export class AppComponent implements OnInit {
   downloadCount = '';
   navbarCollapsed = true;

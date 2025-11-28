@@ -776,9 +776,10 @@ if (isBrowserVisible('ngb-popover animations')) {
   describe('ngb-popover animations', () => {
 
     @Component({
-      template: `<button ngbPopover="Great tip!" triggers="click" (shown)="shown()" (hidden)="hidden()"></button>`,
-      host: {'[class.ngb-reduce-motion]': 'reduceMotion'}
-    })
+    template: `<button ngbPopover="Great tip!" triggers="click" (shown)="shown()" (hidden)="hidden()"></button>`,
+    host: { '[class.ngb-reduce-motion]': 'reduceMotion' },
+    standalone: false
+})
     class TestAnimationComponent {
       reduceMotion = true;
       shown = () => {};
@@ -891,7 +892,10 @@ if (isBrowserVisible('ngb-popover animations')) {
   });
 }
 
-@Component({selector: 'test-cmpt', template: ``})
+@Component({
+    selector: 'test-cmpt', template: ``,
+    standalone: false
+})
 export class TestComponent {
   name = 'World';
   show = true;
@@ -912,18 +916,27 @@ export class TestComponent {
   hidden() { expect(NgZone.isInAngularZone()).toBe(true, `'hidden' should run inside the Angular zone`); }
 }
 
-@Component({selector: 'test-onpush-cmpt', changeDetection: ChangeDetectionStrategy.OnPush, template: ``})
+@Component({
+    selector: 'test-onpush-cmpt', changeDetection: ChangeDetectionStrategy.OnPush, template: ``,
+    standalone: false
+})
 export class TestOnPushComponent {
 }
 
-@Component({selector: 'destroyable-cmpt', template: 'Some content'})
+@Component({
+    selector: 'destroyable-cmpt', template: 'Some content',
+    standalone: false
+})
 export class DestroyableCmpt implements OnDestroy {
   constructor(private _spyService: SpyService) {}
 
   ngOnDestroy(): void { this._spyService.called = true; }
 }
 
-@Component({selector: 'test-hooks', template: `<div ngbPopover="popover"></div>`})
+@Component({
+    selector: 'test-hooks', template: `<div ngbPopover="popover"></div>`,
+    standalone: false
+})
 export class TestHooksComponent implements AfterViewInit {
   @ViewChild(NgbPopover, {static: true}) popover;
 

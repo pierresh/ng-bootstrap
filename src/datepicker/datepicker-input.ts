@@ -47,20 +47,21 @@ import {isString} from '../util/util';
  * Manages interaction with the input field itself, does value formatting and provides forms integration.
  */
 @Directive({
-  selector: 'input[ngbDatepicker]',
-  exportAs: 'ngbDatepicker',
-  host: {
-    '(input)': 'manualDateChange($event.target.value)',
-    '(change)': 'manualDateChange($event.target.value, true)',
-    '(focus)': 'onFocus()',
-    '(blur)': 'onBlur()',
-    '[disabled]': 'disabled'
-  },
-  providers: [
-    {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbInputDatepicker), multi: true},
-    {provide: NG_VALIDATORS, useExisting: forwardRef(() => NgbInputDatepicker), multi: true},
-    {provide: NgbDatepickerConfig, useExisting: NgbInputDatepickerConfig}
-  ],
+    selector: 'input[ngbDatepicker]',
+    exportAs: 'ngbDatepicker',
+    host: {
+        '(input)': 'manualDateChange($event.target.value)',
+        '(change)': 'manualDateChange($event.target.value, true)',
+        '(focus)': 'onFocus()',
+        '(blur)': 'onBlur()',
+        '[disabled]': 'disabled'
+    },
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbInputDatepicker), multi: true },
+        { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgbInputDatepicker), multi: true },
+        { provide: NgbDatepickerConfig, useExisting: NgbInputDatepickerConfig }
+    ],
+    standalone: false
 })
 export class NgbInputDatepicker implements OnChanges,
     OnDestroy, ControlValueAccessor, Validator {

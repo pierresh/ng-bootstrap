@@ -37,23 +37,23 @@ export interface StarTemplateContext {
  * A directive that helps visualising and interacting with a star rating bar.
  */
 @Component({
-  selector: 'ngb-rating',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  host: {
-    'class': 'd-inline-flex',
-    '[tabindex]': 'disabled ? -1 : 0',
-    'role': 'slider',
-    'aria-valuemin': '0',
-    '[attr.aria-valuemax]': 'max',
-    '[attr.aria-valuenow]': 'nextRate',
-    '[attr.aria-valuetext]': 'ariaValueText()',
-    '[attr.aria-disabled]': 'readonly ? true : null',
-    '(blur)': 'handleBlur()',
-    '(keydown)': 'handleKeyDown($event)',
-    '(mouseleave)': 'reset()'
-  },
-  template: `
+    selector: 'ngb-rating',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    host: {
+        'class': 'd-inline-flex',
+        '[tabindex]': 'disabled ? -1 : 0',
+        'role': 'slider',
+        'aria-valuemin': '0',
+        '[attr.aria-valuemax]': 'max',
+        '[attr.aria-valuenow]': 'nextRate',
+        '[attr.aria-valuetext]': 'ariaValueText()',
+        '[attr.aria-disabled]': 'readonly ? true : null',
+        '(blur)': 'handleBlur()',
+        '(keydown)': 'handleKeyDown($event)',
+        '(mouseleave)': 'reset()'
+    },
+    template: `
     <ng-template #t let-fill="fill">{{ fill === 100 ? '&#9733;' : '&#9734;' }}</ng-template>
     <ng-template ngFor [ngForOf]="contexts" let-index="index">
       <span class="sr-only">({{ index < nextRate ? '*' : ' ' }})</span>
@@ -63,7 +63,8 @@ export interface StarTemplateContext {
       </span>
     </ng-template>
   `,
-  providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbRating), multi: true}]
+    providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbRating), multi: true }],
+    standalone: false
 })
 export class NgbRating implements ControlValueAccessor,
     OnInit, OnChanges {

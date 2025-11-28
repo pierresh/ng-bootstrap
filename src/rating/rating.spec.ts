@@ -765,7 +765,10 @@ describe('ngb-rating', () => {
   });
 });
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   changed = false;
   form = new FormGroup({rating: new FormControl<any>(null, Validators.required)});

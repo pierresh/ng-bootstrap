@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ngbd-nav-dynamic',
-  templateUrl: './nav-dynamic.html',
-  styles: [`
+    selector: 'ngbd-nav-dynamic',
+    templateUrl: './nav-dynamic.html',
+    styles: [`
     .close {
       font-size: 1.4rem;
       opacity: 0.1;
@@ -12,7 +12,8 @@ import {Component} from '@angular/core';
     .nav-link:hover > .close {
       opacity: 0.8;
     }
-  `]
+  `],
+    standalone: false
 })
 export class NgbdNavDynamic {
   tabs = [1, 2, 3, 4, 5];

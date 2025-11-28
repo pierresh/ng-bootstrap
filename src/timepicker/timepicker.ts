@@ -21,10 +21,10 @@ const FILTER_REGEX = /[^0-9]/g;
  * A directive that helps with wth picking hours, minutes and seconds.
  */
 @Component({
-  selector: 'ngb-timepicker',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./timepicker.scss'],
-  template: `
+    selector: 'ngb-timepicker',
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./timepicker.scss'],
+    template: `
     <fieldset [disabled]="disabled" [class.disabled]="disabled">
       <div class="ngb-tp">
         <div class="ngb-tp-input-container ngb-tp-hour">
@@ -109,7 +109,8 @@ const FILTER_REGEX = /[^0-9]/g;
       </div>
     </fieldset>
   `,
-  providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbTimepicker), multi: true}]
+    providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbTimepicker), multi: true }],
+    standalone: false
 })
 export class NgbTimepicker implements ControlValueAccessor,
     OnChanges {

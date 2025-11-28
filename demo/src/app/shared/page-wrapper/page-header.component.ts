@@ -2,12 +2,12 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {NgbdOverviewSection} from '../../components/shared/overview';
 
 @Component({
-  selector: 'ngbd-page-header',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    'class': 'd-block'
-  },
-  template: `
+    selector: 'ngbd-page-header',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        'class': 'd-block'
+    },
+    template: `
     <h2>
       <a routerLink="." [fragment]="fragment" ngbdFragment>
         <img src="img/link-symbol.svg" />
@@ -15,6 +15,7 @@ import {NgbdOverviewSection} from '../../components/shared/overview';
       {{ title }}
     </h2>
   `,
+    standalone: false
 })
 export class NgbdPageHeaderComponent implements NgbdOverviewSection {
   @Input() title: string;

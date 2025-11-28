@@ -1620,7 +1620,10 @@ describe('ngb-timepicker', () => {
 });
 
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   model;
   disabled = true;
@@ -1634,7 +1637,10 @@ class TestComponent {
   onSubmit() { this.submitted = true; }
 }
 
-@Component({selector: 'test-cmp-on-push', template: '', changeDetection: ChangeDetectionStrategy.OnPush})
+@Component({
+    selector: 'test-cmp-on-push', template: '', changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
+})
 class TestComponentOnPush {
 }
 

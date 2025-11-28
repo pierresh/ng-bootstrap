@@ -586,7 +586,10 @@ describe('ngb-dropdown-toggle', () => {
   });
 });
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   isOpen = false;
   stateChanges: boolean[] = [];

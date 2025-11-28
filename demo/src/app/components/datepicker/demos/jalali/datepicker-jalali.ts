@@ -13,12 +13,13 @@ export class NgbDatepickerI18nPersian extends NgbDatepickerI18n {
 }
 
 @Component({
-  selector: 'ngbd-datepicker-jalali',
-  templateUrl: './datepicker-jalali.html',
-  providers: [
-    {provide: NgbCalendar, useClass: NgbCalendarPersian},
-    {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian}
-  ]
+    selector: 'ngbd-datepicker-jalali',
+    templateUrl: './datepicker-jalali.html',
+    providers: [
+        { provide: NgbCalendar, useClass: NgbCalendarPersian },
+        { provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian }
+    ],
+    standalone: false
 })
 export class NgbdDatepickerJalali {
 

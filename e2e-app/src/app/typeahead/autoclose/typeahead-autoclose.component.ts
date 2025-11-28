@@ -4,7 +4,10 @@ import {map} from 'rxjs/operators';
 
 const items = ['one', 'two', 'three'];
 
-@Component({templateUrl: './typeahead-autoclose.component.html', changeDetection: ChangeDetectionStrategy.OnPush})
+@Component({
+    templateUrl: './typeahead-autoclose.component.html', changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
+})
 export class TypeaheadAutoCloseComponent {
   showHint = false;
 

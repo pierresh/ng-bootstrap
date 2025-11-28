@@ -29,7 +29,10 @@ import {Key} from '../util/key';
 import {NgbDropdownConfig} from './dropdown-config';
 import {FOCUSABLE_ELEMENTS_SELECTOR} from '../util/focus-trap';
 
-@Directive({selector: '.navbar'})
+@Directive({
+    selector: '.navbar',
+    standalone: false
+})
 export class NgbNavbar {
 }
 
@@ -40,8 +43,9 @@ export class NgbNavbar {
  * @since 4.1.0
  */
 @Directive({
-  selector: '[ngbDropdownItem]',
-  host: {'class': 'dropdown-item', '[class.disabled]': 'disabled', '[tabIndex]': 'disabled ? -1 : 0'}
+    selector: '[ngbDropdownItem]',
+    host: { 'class': 'dropdown-item', '[class.disabled]': 'disabled', '[tabIndex]': 'disabled ? -1 : 0' },
+    standalone: false
 })
 export class NgbDropdownItem {
   static ngAcceptInputType_disabled: boolean | '';
@@ -66,20 +70,21 @@ export class NgbDropdownItem {
  * A directive that wraps dropdown menu content and dropdown items.
  */
 @Directive({
-  selector: '[ngbDropdownMenu]',
-  host: {
-    '[class.dropdown-menu]': 'true',
-    '[class.show]': 'dropdown.isOpen()',
-    '[attr.x-placement]': 'placement',
-    '(keydown.ArrowUp)': 'dropdown.onKeyDown($event)',
-    '(keydown.ArrowDown)': 'dropdown.onKeyDown($event)',
-    '(keydown.Home)': 'dropdown.onKeyDown($event)',
-    '(keydown.End)': 'dropdown.onKeyDown($event)',
-    '(keydown.Enter)': 'dropdown.onKeyDown($event)',
-    '(keydown.Space)': 'dropdown.onKeyDown($event)',
-    '(keydown.Tab)': 'dropdown.onKeyDown($event)',
-    '(keydown.Shift.Tab)': 'dropdown.onKeyDown($event)'
-  }
+    selector: '[ngbDropdownMenu]',
+    host: {
+        '[class.dropdown-menu]': 'true',
+        '[class.show]': 'dropdown.isOpen()',
+        '[attr.x-placement]': 'placement',
+        '(keydown.ArrowUp)': 'dropdown.onKeyDown($event)',
+        '(keydown.ArrowDown)': 'dropdown.onKeyDown($event)',
+        '(keydown.Home)': 'dropdown.onKeyDown($event)',
+        '(keydown.End)': 'dropdown.onKeyDown($event)',
+        '(keydown.Enter)': 'dropdown.onKeyDown($event)',
+        '(keydown.Space)': 'dropdown.onKeyDown($event)',
+        '(keydown.Tab)': 'dropdown.onKeyDown($event)',
+        '(keydown.Shift.Tab)': 'dropdown.onKeyDown($event)'
+    },
+    standalone: false
 })
 export class NgbDropdownMenu {
   nativeElement: HTMLElement;
@@ -103,7 +108,10 @@ export class NgbDropdownMenu {
  * @since 1.1.0
  */
 @Directive(
-    {selector: '[ngbDropdownAnchor]', host: {'class': 'dropdown-toggle', '[attr.aria-expanded]': 'dropdown.isOpen()'}})
+    {
+    selector: '[ngbDropdownAnchor]', host: { 'class': 'dropdown-toggle', '[attr.aria-expanded]': 'dropdown.isOpen()' },
+    standalone: false
+})
 export class NgbDropdownAnchor {
   nativeElement: HTMLElement;
   constructor(@Inject(forwardRef(() => NgbDropdown)) public dropdown, _elementRef: ElementRef<HTMLElement>) {
@@ -117,19 +125,20 @@ export class NgbDropdownAnchor {
  * You can also use `NgbDropdownAnchor` as an alternative.
  */
 @Directive({
-  selector: '[ngbDropdownToggle]',
-  host: {
-    'class': 'dropdown-toggle',
-    '[attr.aria-expanded]': 'dropdown.isOpen()',
-    '(click)': 'dropdown.toggle()',
-    '(keydown.ArrowUp)': 'dropdown.onKeyDown($event)',
-    '(keydown.ArrowDown)': 'dropdown.onKeyDown($event)',
-    '(keydown.Home)': 'dropdown.onKeyDown($event)',
-    '(keydown.End)': 'dropdown.onKeyDown($event)',
-    '(keydown.Tab)': 'dropdown.onKeyDown($event)',
-    '(keydown.Shift.Tab)': 'dropdown.onKeyDown($event)'
-  },
-  providers: [{provide: NgbDropdownAnchor, useExisting: forwardRef(() => NgbDropdownToggle)}]
+    selector: '[ngbDropdownToggle]',
+    host: {
+        'class': 'dropdown-toggle',
+        '[attr.aria-expanded]': 'dropdown.isOpen()',
+        '(click)': 'dropdown.toggle()',
+        '(keydown.ArrowUp)': 'dropdown.onKeyDown($event)',
+        '(keydown.ArrowDown)': 'dropdown.onKeyDown($event)',
+        '(keydown.Home)': 'dropdown.onKeyDown($event)',
+        '(keydown.End)': 'dropdown.onKeyDown($event)',
+        '(keydown.Tab)': 'dropdown.onKeyDown($event)',
+        '(keydown.Shift.Tab)': 'dropdown.onKeyDown($event)'
+    },
+    providers: [{ provide: NgbDropdownAnchor, useExisting: forwardRef(() => NgbDropdownToggle) }],
+    standalone: false
 })
 export class NgbDropdownToggle extends NgbDropdownAnchor {
   constructor(@Inject(forwardRef(() => NgbDropdown)) dropdown, elementRef: ElementRef<HTMLElement>) {
@@ -140,7 +149,10 @@ export class NgbDropdownToggle extends NgbDropdownAnchor {
 /**
  * A directive that provides contextual overlays for displaying lists of links and more.
  */
-@Directive({selector: '[ngbDropdown]', exportAs: 'ngbDropdown', host: {'[class.show]': 'isOpen()'}})
+@Directive({
+    selector: '[ngbDropdown]', exportAs: 'ngbDropdown', host: { '[class.show]': 'isOpen()' },
+    standalone: false
+})
 export class NgbDropdown implements AfterContentInit, OnChanges, OnDestroy {
   static ngAcceptInputType_autoClose: boolean | string;
   static ngAcceptInputType_display: string;

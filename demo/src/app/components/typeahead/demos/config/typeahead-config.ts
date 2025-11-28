@@ -13,10 +13,12 @@ const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'C
   'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 @Component({
-  selector: 'ngbd-typeahead-config',
-  templateUrl: './typeahead-config.html',
-  styles: [`.form-control { width: 300px; }`],
-  providers: [NgbTypeaheadConfig] // add NgbTypeaheadConfig to the component providers
+    selector: 'ngbd-typeahead-config',
+    templateUrl: './typeahead-config.html',
+    styles: [`.form-control { width: 300px; }`],
+    providers: [NgbTypeaheadConfig] // add NgbTypeaheadConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdTypeaheadConfig {
   public model: any;

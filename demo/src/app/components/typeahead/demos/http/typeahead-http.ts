@@ -29,10 +29,11 @@ export class WikipediaService {
 }
 
 @Component({
-  selector: 'ngbd-typeahead-http',
-  templateUrl: './typeahead-http.html',
-  providers: [WikipediaService],
-  styles: [`.form-control { width: 300px; }`]
+    selector: 'ngbd-typeahead-http',
+    templateUrl: './typeahead-http.html',
+    providers: [WikipediaService],
+    styles: [`.form-control { width: 300px; }`],
+    standalone: false
 })
 export class NgbdTypeaheadHttp {
   model: any;

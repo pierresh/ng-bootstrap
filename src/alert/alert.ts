@@ -25,20 +25,20 @@ import {ngbAlertFadingTransition} from './alert-transition';
  * It supports several alert types and can be dismissed.
  */
 @Component({
-  selector: 'ngb-alert',
-  exportAs: 'ngbAlert',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  host:
-      {'role': 'alert', 'class': 'alert show', '[class.fade]': 'animation', '[class.alert-dismissible]': 'dismissible'},
-  template: `
+    selector: 'ngb-alert',
+    exportAs: 'ngbAlert',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    host: { 'role': 'alert', 'class': 'alert show', '[class.fade]': 'animation', '[class.alert-dismissible]': 'dismissible' },
+    template: `
     <ng-content></ng-content>
     <button *ngIf="dismissible" type="button" class="close" aria-label="Close" i18n-aria-label="@@ngb.alert.close"
       (click)="close()">
       <span aria-hidden="true">&times;</span>
     </button>
     `,
-  styleUrls: ['./alert.scss']
+    styleUrls: ['./alert.scss'],
+    standalone: false
 })
 export class NgbAlert implements OnInit,
     OnChanges {

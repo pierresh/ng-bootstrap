@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {Snippet} from '../../shared/code/snippet';
 
 @Component({
-  templateUrl: './positioning.component.html'
+    templateUrl: './positioning.component.html',
+    standalone: false
 })
 export class PositioningPage {
   rightExample = Snippet({

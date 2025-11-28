@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'buttons-component',
-  template: `
+    selector: 'buttons-component',
+    template: `
     <h5>Radio</h5>
     <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="radio">
       <label ngbButtonLabel class="btn-primary">
@@ -28,7 +28,8 @@ import { Component } from '@angular/core';
         <input type="checkbox" ngbButton [(ngModel)]="checkbox.right"> Right
       </label>
     </div>
-  `
+  `,
+    standalone: false
 })
 export class ButtonsComponent {
   radio = 1;

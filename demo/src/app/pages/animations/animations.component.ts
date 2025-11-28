@@ -2,7 +2,10 @@ import {Component} from '@angular/core';
 import {Snippet} from '../../shared/code/snippet';
 import {versions} from '../../../environments/versions';
 
-@Component({templateUrl: './animations.component.html'})
+@Component({
+    templateUrl: './animations.component.html',
+    standalone: false
+})
 export class AnimationsPage {
   bsVersion = versions.bootstrap;
 

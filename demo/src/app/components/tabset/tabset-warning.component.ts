@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
-  selector: 'ngbd-tabset-warning',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
+    selector: 'ngbd-tabset-warning',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: `
     <ngb-alert type="danger" [dismissible]="false" class="mb-5 d-flex flex-row">
       <div class="mr-2">
         <svg:svg ngbdIcon="lightbulb" fill="currentColor" />
@@ -14,7 +14,8 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
         Please use <a routerLink="/components/nav">Nav directives</a> as a more flexible alternative.
       </div>
     </ngb-alert>
-  `
+  `,
+    standalone: false
 })
 export class NgbdTabsetWarningComponent {
 }

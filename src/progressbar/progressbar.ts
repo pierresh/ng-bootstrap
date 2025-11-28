@@ -6,18 +6,19 @@ import {NgbProgressbarConfig} from './progressbar-config';
  * A directive that provides feedback on the progress of a workflow or an action.
  */
 @Component({
-  selector: 'ngb-progressbar',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  host: {class: 'progress'},
-  template: `
+    selector: 'ngb-progressbar',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    host: { class: 'progress' },
+    template: `
     <div class="progress-bar{{type ? ' bg-' + type : ''}}{{textType ? ' text-' + textType : ''}}
     {{animated ? ' progress-bar-animated' : ''}}{{striped ? ' progress-bar-striped' : ''}}"
     role="progressbar" [style.width.%]="getPercentValue()"
     [attr.aria-valuenow]="getValue()" aria-valuemin="0" [attr.aria-valuemax]="max">
       <span *ngIf="showValue" i18n="@@ngb.progressbar.value">{{getValue() / max | percent}}</span><ng-content></ng-content>
     </div>
-  `
+  `,
+    standalone: false
 })
 export class NgbProgressbar {
   private _max: number;

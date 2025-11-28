@@ -10,9 +10,9 @@ interface Version {
 }
 
 @Component({
-  selector: 'ngbd-demo-versions',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
+    selector: 'ngbd-demo-versions',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: `
     <div class="nav-item" ngbDropdown>
       <a class="nav-link" ngbDropdownToggle id="demo-site-versions" role="button">
         ng-bootstrap v{{ current }}
@@ -21,7 +21,8 @@ interface Version {
         <a ngbDropdownItem *ngFor="let version of versions$ | async" href="{{ version.url }}#{{ routerUrl }}">{{ version.text }}</a>
       </div>
     </div>
-  `
+  `,
+    standalone: false
 })
 
 export class NgbdDemoVersionsComponent implements OnDestroy {

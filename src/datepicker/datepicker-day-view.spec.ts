@@ -83,9 +83,9 @@ describe('ngbDatepickerDayView', () => {
 });
 
 @Component({
-  selector: 'test-cmp',
-  template:
-      '<div ngbDatepickerDayView [date]="date" [currentMonth]="currentMonth" [selected]="selected" [disabled]="disabled"></div>'
+    selector: 'test-cmp',
+    template: '<div ngbDatepickerDayView [date]="date" [currentMonth]="currentMonth" [selected]="selected" [disabled]="disabled"></div>',
+    standalone: false
 })
 class TestComponent {
   currentMonth = 7;

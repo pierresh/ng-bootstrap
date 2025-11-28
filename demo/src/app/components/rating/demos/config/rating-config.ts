@@ -2,9 +2,11 @@ import {Component} from '@angular/core';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-rating-config',
-  templateUrl: './rating-config.html',
-  providers: [NgbRatingConfig] // add NgbRatingConfig to the component providers
+    selector: 'ngbd-rating-config',
+    templateUrl: './rating-config.html',
+    providers: [NgbRatingConfig] // add NgbRatingConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdRatingConfig {
   constructor(config: NgbRatingConfig) {

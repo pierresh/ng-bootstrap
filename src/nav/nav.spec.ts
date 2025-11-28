@@ -1214,7 +1214,7 @@ if (isBrowserVisible('ngb-nav animations')) {
   describe('ngb-nav animations', () => {
 
     @Component({
-      template: `
+    template: `
         <ul ngbNav #n="ngbNav" class="nav-tabs" (shown)="onNavShownSpy($event)" (hidden)="onNavHiddenSpy($event)">
           <li [ngbNavItem]="1" (shown)="onItemShownSpy(1)" (hidden)="onItemHiddenSpy(1)">
             <a ngbNavLink>link 1</a>
@@ -1231,8 +1231,9 @@ if (isBrowserVisible('ngb-nav animations')) {
         </ul>
         <div [ngbNavOutlet]="n"></div>
       `,
-      host: {'[class.ngb-reduce-motion]': 'reduceMotion'}
-    })
+    host: { '[class.ngb-reduce-motion]': 'reduceMotion' },
+    standalone: false
+})
     class TestAnimationComponent {
       reduceMotion = false;
       onItemHiddenSpy = createSpy();
@@ -1451,7 +1452,10 @@ if (isBrowserVisible('ngb-nav animations')) {
 }
 
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   activeId;
   disabled = true;

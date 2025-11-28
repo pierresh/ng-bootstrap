@@ -12,10 +12,10 @@ import {Analytics} from '../../../shared/analytics/analytics';
  * The config service of a directive NgbFoo is, by convention, named NgbFooConfig.
  */
 @Component({
-  selector: 'ngbd-api-docs',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './api-docs.component.html',
-  styles: [`
+    selector: 'ngbd-api-docs',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './api-docs.component.html',
+    styles: [`
     .label-cell {
       width: 25%;
     }
@@ -23,7 +23,8 @@ import {Analytics} from '../../../shared/analytics/analytics';
       width: 75%;
     }
     `
-  ]
+    ],
+    standalone: false
 })
 export class NgbdApiDocs {
 

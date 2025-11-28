@@ -883,14 +883,15 @@ if (isBrowserVisible('ngb-accordion animations')) {
   describe('ngb-accordion animations', () => {
 
     @Component({
-      template: `
+    template: `
       <ngb-accordion activeIds="first" (panelChange)="onPanelChange($event)" (shown)="onShown($event)" (hidden)="onHidden($event)">
         <ngb-panel id="first" (shown)="onPanelShown()" (hidden)="onPanelHidden()"></ngb-panel>
         <ngb-panel id="second"></ngb-panel>
       </ngb-accordion>
     `,
-      host: {'[class.ngb-reduce-motion]': 'reduceMotion'}
-    })
+    host: { '[class.ngb-reduce-motion]': 'reduceMotion' },
+    standalone: false
+})
     class TestAnimationComponent {
       reduceMotion = true;
       onShown = (panelId) => panelId;
@@ -1059,7 +1060,10 @@ if (isBrowserVisible('ngb-accordion animations')) {
   });
 }
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   activeIds: string | string[] = [];
   classType;

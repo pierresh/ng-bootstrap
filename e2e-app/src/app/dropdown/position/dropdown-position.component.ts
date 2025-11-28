@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
 
-@Component({templateUrl: './dropdown-position.component.html'})
+@Component({
+    templateUrl: './dropdown-position.component.html',
+    standalone: false
+})
 export class DropdownPositionComponent {
   isInDom = true;
   placement = 'top-left';

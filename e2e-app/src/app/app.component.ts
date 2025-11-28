@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {NgbConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-root',
-  template: `
+    selector: 'app-root',
+    template: `
     <div class="container-fluid">
       <h1>ng-bootstrap e2e test application</h1>
       <hr>
@@ -11,7 +11,8 @@ import {NgbConfig} from '@ng-bootstrap/ng-bootstrap';
       <hr>
       <router-outlet></router-outlet>
     </div>
-  `
+  `,
+    standalone: false
 })
 export class AppComponent {
   constructor(ngbConfig: NgbConfig) { ngbConfig.animation = false; }

@@ -962,13 +962,14 @@ describe('ngb-modal', () => {
     describe('ngb-modal animations', () => {
 
       @Component({
-        template: `
+    template: `
           <ng-template #content let-close="close" let-dismiss="dismiss">
             <div id="inside-div">Bla bla</div>
             <button class="btn btn-primary" id="close" (click)="close('myResult')">Close me</button>
           </ng-template>
-        `
-      })
+        `,
+    standalone: false
+})
       class TestAnimationComponent {
         @ViewChild('content', {static: true}) content;
 
@@ -1171,14 +1172,20 @@ describe('ngb-modal', () => {
 
 
 
-@Component({selector: 'custom-injector-cmpt', template: 'Some content'})
+@Component({
+    selector: 'custom-injector-cmpt', template: 'Some content',
+    standalone: false
+})
 export class CustomInjectorCmpt implements OnDestroy {
   constructor(private _spyService: CustomSpyService) {}
 
   ngOnDestroy(): void { this._spyService.called = true; }
 }
 
-@Component({selector: 'destroyable-cmpt', template: 'Some content'})
+@Component({
+    selector: 'destroyable-cmpt', template: 'Some content',
+    standalone: false
+})
 export class DestroyableCmpt implements OnDestroy {
   constructor(private _spyService: SpyService) {}
 
@@ -1186,7 +1193,10 @@ export class DestroyableCmpt implements OnDestroy {
 }
 
 @Component(
-    {selector: 'modal-content-cmpt', template: '<button class="closeFromInside" (click)="close()">Close</button>'})
+    {
+    selector: 'modal-content-cmpt', template: '<button class="closeFromInside" (click)="close()">Close</button>',
+    standalone: false
+})
 export class WithActiveModalCmpt {
   constructor(public activeModal: NgbActiveModal) {}
 
@@ -1194,33 +1204,38 @@ export class WithActiveModalCmpt {
 }
 
 @Component(
-    {selector: 'modal-autofocus-cmpt', template: `<button class="withNgbAutofocus" ngbAutofocus>Click Me</button>`})
+    {
+    selector: 'modal-autofocus-cmpt', template: `<button class="withNgbAutofocus" ngbAutofocus>Click Me</button>`,
+    standalone: false
+})
 export class WithAutofocusModalCmpt {
 }
 
 @Component({
-  selector: 'modal-firstfocusable-cmpt',
-  template: `
+    selector: 'modal-firstfocusable-cmpt',
+    template: `
   <button class="firstFocusable close">Close</button>
   <button class="other">Other button</button>
-`
+`,
+    standalone: false
 })
 export class WithFirstFocusableModalCmpt {
 }
 
 @Component({
-  selector: 'modal-skip-tabindex-firstfocusable-cmpt',
-  template: `
+    selector: 'modal-skip-tabindex-firstfocusable-cmpt',
+    template: `
   <button tabindex="-1" class="firstFocusable close">Close</button>
   <button class="other">Other button</button>
-`
+`,
+    standalone: false
 })
 export class WithSkipTabindexFirstFocusableModalCmpt {
 }
 
 @Component({
-  selector: 'test-cmpt',
-  template: `
+    selector: 'test-cmpt',
+    template: `
     <div id="testContainer"></div>
     <ng-template #content>Hello, {{name}}!</ng-template>
     <ng-template #destroyableContent><destroyable-cmpt></destroyable-cmpt></ng-template>
@@ -1246,7 +1261,8 @@ export class WithSkipTabindexFirstFocusableModalCmpt {
       (click)="open('from non focusable element but stored as activeElement on IE')"
       style="display: inline-block;"
     >Open</div>
-  `
+  `,
+    standalone: false
 })
 class TestComponent {
   name = 'World';
@@ -1284,8 +1300,8 @@ class TestComponent {
 }
 
 @Component({
-  selector: 'test-a11y-cmpt',
-  template: `
+    selector: 'test-a11y-cmpt',
+    template: `
     <div class="to-hide to-restore-true" aria-hidden="true">
       <div class="not-to-hide"></div>
     </div>
@@ -1303,7 +1319,8 @@ class TestComponent {
     <div class="to-hide to-restore-false" aria-hidden="false">
       <div class="not-to-hide"></div>
     </div>
-  `
+  `,
+    standalone: false
 })
 class TestA11yComponent {
   constructor(private modalService: NgbModal) {}

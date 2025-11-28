@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-datepicker-customday',
-  templateUrl: './datepicker-customday.html',
-  styles: [`
+    selector: 'ngbd-datepicker-customday',
+    templateUrl: './datepicker-customday.html',
+    styles: [`
     .custom-day {
       text-align: center;
       padding: 0.185rem 0.25rem;
@@ -23,7 +23,8 @@ import {NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
     .hidden {
       display: none;
     }
-  `]
+  `],
+    standalone: false
 })
 export class NgbdDatepickerCustomday {
   model: NgbDateStruct;

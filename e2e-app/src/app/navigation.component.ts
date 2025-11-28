@@ -5,8 +5,8 @@ import {routes} from './app.routing';
 import {NavigationEnd} from '@angular/router';
 
 @Component({
-  selector: 'app-navigation',
-  template: `
+    selector: 'app-navigation',
+    template: `
   <a role="button" class="btn btn-outline-primary ml-3" id="navigate-home" href="#/">Menu</a>
   <div [hidden]="isHidden">
     <div *ngFor="let route of routes" class="card m-1 d-inline-block" style="width: 290px;">
@@ -19,7 +19,8 @@ import {NavigationEnd} from '@angular/router';
       </ul>
     </div>
   </div>
-  `
+  `,
+    standalone: false
 })
 
 export class NavigationComponent {

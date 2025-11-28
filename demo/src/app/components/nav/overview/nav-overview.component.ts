@@ -8,9 +8,10 @@ import {versions} from '../../../../environments/versions';
 
 
 @Component({
-  selector: 'ngbd-nav-overview',
-  templateUrl: './nav-overview.component.html',
-  host: {'[class.overview]': 'true'}
+    selector: 'ngbd-nav-overview',
+    templateUrl: './nav-overview.component.html',
+    host: { '[class.overview]': 'true' },
+    standalone: false
 })
 export class NgbdNavOverviewComponent {
 

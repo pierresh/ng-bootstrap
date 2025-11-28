@@ -33,23 +33,24 @@ import {NgbPopoverConfig} from './popover-config';
 let nextId = 0;
 
 @Component({
-  selector: 'ngb-popover-window',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  host: {
-    '[class]': '"popover" + (popoverClass ? " " + popoverClass : "")',
-    '[class.fade]': 'animation',
-    'role': 'tooltip',
-    '[id]': 'id'
-  },
-  template: `
+    selector: 'ngb-popover-window',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    host: {
+        '[class]': '"popover" + (popoverClass ? " " + popoverClass : "")',
+        '[class.fade]': 'animation',
+        'role': 'tooltip',
+        '[id]': 'id'
+    },
+    template: `
     <div class="arrow"></div>
     <h3 class="popover-header" *ngIf="title">
       <ng-template #simpleTitle>{{title}}</ng-template>
       <ng-template [ngTemplateOutlet]="isTitleTemplate() ? $any(title) : simpleTitle" [ngTemplateOutletContext]="context"></ng-template>
     </h3>
     <div class="popover-body"><ng-content></ng-content></div>`,
-  styleUrls: ['./popover.scss']
+    styleUrls: ['./popover.scss'],
+    standalone: false
 })
 export class NgbPopoverWindow {
   @Input() animation: boolean;
@@ -64,7 +65,10 @@ export class NgbPopoverWindow {
 /**
  * A lightweight and extensible directive for fancy popover creation.
  */
-@Directive({selector: '[ngbPopover]', exportAs: 'ngbPopover'})
+@Directive({
+    selector: '[ngbPopover]', exportAs: 'ngbPopover',
+    standalone: false
+})
 export class NgbPopover implements OnInit, OnDestroy, OnChanges {
   static ngAcceptInputType_autoClose: boolean | string;
 

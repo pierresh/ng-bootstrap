@@ -1178,12 +1178,18 @@ class NgbDateNativeAdapter extends NgbDateAdapter<Date> {
   toModel(date: NgbDateStruct): Date | null { return date ? new Date(date.year, date.month - 1, date.day) : null; }
 }
 
-@Component({selector: 'test-native-cmp', template: ''})
+@Component({
+    selector: 'test-native-cmp', template: '',
+    standalone: false
+})
 class TestNativeComponent {
   date: Date;
 }
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   container;
   date: NgbDateStruct;

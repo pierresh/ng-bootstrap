@@ -8,8 +8,8 @@ interface Country {
 }
 
 @Component({
-  selector: 'ngbd-table-overview-demo',
-  template: `
+    selector: 'ngbd-table-overview-demo',
+    template: `
     <table class="table table-striped">
       <thead>
       <tr>
@@ -31,7 +31,8 @@ interface Country {
       </tr>
       </tbody>
     </table>
-  `
+  `,
+    standalone: false
 })
 export class NgbdTableOverviewDemo {
 

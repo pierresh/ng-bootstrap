@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nav-component',
-  template: `
+    selector: 'nav-component',
+    template: `
     <ul ngbNav #nav="ngbNav" class="nav-tabs">
       <li ngbNavItem>
         <a ngbNavLink>Tab One</a>
@@ -18,7 +18,8 @@ import { Component } from '@angular/core';
       </li>
     </ul>
     <div [ngbNavOutlet]="nav"></div>
-  `
+  `,
+    standalone: false
 })
 export class NavComponent {
 }

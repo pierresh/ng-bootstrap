@@ -63,8 +63,8 @@ const DEMOS = [
 ];
 
 @Component({
-  selector: 'ngbd-datepicker-calendars',
-  template: `
+    selector: 'ngbd-datepicker-calendars',
+    template: `
     <p>
       Datepicker relies on <code>NgbCalendar</code> abstract class for calendar-related calculations.
       Default implementation is the <code>NgbCalendarGregorian</code>, but can be any
@@ -108,7 +108,8 @@ const DEMOS = [
     >
       <ng-template [ngComponentOutlet]="demo.type"></ng-template>
     </ngbd-widget-demo>
-  `
+  `,
+    standalone: false
 })
 export class NgbdDatepickerCalendarsComponent extends NgbdExamplesPage {
   demos = DEMOS;

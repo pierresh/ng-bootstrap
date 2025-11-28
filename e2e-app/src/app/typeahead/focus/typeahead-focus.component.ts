@@ -65,7 +65,10 @@ const states = [
   'Wyoming'
 ];
 
-@Component({templateUrl: './typeahead-focus.component.html'})
+@Component({
+    templateUrl: './typeahead-focus.component.html',
+    standalone: false
+})
 export class TypeaheadFocusComponent {
   model: any;
 

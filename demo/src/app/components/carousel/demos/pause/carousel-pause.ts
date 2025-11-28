@@ -2,7 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 
 
-@Component({selector: 'ngbd-carousel-pause', templateUrl: './carousel-pause.html'})
+@Component({
+    selector: 'ngbd-carousel-pause', templateUrl: './carousel-pause.html',
+    standalone: false
+})
 export class NgbdCarouselPause {
   images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
 

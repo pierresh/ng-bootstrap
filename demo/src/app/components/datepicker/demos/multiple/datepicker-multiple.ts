@@ -1,14 +1,15 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ngbd-datepicker-multiple',
-  templateUrl: './datepicker-multiple.html',
-  styles: [`
+    selector: 'ngbd-datepicker-multiple',
+    templateUrl: './datepicker-multiple.html',
+    styles: [`
     select.custom-select {
       margin: 0.5rem 0.5rem 0 0;
       width: auto;
     }
-  `]
+  `],
+    standalone: false
 })
 export class NgbdDatepickerMultiple {
 

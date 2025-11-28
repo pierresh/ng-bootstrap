@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-datepicker-range-popup',
-  templateUrl: './datepicker-range-popup.html',
-  styles: [`
+    selector: 'ngbd-datepicker-range-popup',
+    templateUrl: './datepicker-range-popup.html',
+    styles: [`
     .form-group.hidden {
       width: 0;
       margin: 0;
@@ -28,7 +28,8 @@ import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-boo
     .custom-day.faded {
       background-color: rgba(2, 117, 216, 0.5);
     }
-  `]
+  `],
+    standalone: false
 })
 export class NgbdDatepickerRangePopup {
 

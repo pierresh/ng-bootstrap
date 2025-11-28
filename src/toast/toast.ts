@@ -29,7 +29,10 @@ import {ngbToastFadeInTransition, ngbToastFadeOutTransition} from './toast-trans
  *
  * @since 5.0.0
  */
-@Directive({selector: '[ngbToastHeader]'})
+@Directive({
+    selector: '[ngbToastHeader]',
+    standalone: false
+})
 export class NgbToastHeader {
 }
 
@@ -40,17 +43,17 @@ export class NgbToastHeader {
  * @since 5.0.0
  */
 @Component({
-  selector: 'ngb-toast',
-  exportAs: 'ngbToast',
-  encapsulation: ViewEncapsulation.None,
-  host: {
-    'role': 'alert',
-    '[attr.aria-live]': 'ariaLive',
-    'aria-atomic': 'true',
-    'class': 'toast',
-    '[class.fade]': 'animation',
-  },
-  template: `
+    selector: 'ngb-toast',
+    exportAs: 'ngbToast',
+    encapsulation: ViewEncapsulation.None,
+    host: {
+        'role': 'alert',
+        '[attr.aria-live]': 'ariaLive',
+        'aria-atomic': 'true',
+        'class': 'toast',
+        '[class.fade]': 'animation',
+    },
+    template: `
     <ng-template #headerTpl>
       <strong class="mr-auto">{{header}}</strong>
     </ng-template>
@@ -66,7 +69,8 @@ export class NgbToastHeader {
       <ng-content></ng-content>
     </div>
   `,
-  styleUrls: ['./toast.scss']
+    styleUrls: ['./toast.scss'],
+    standalone: false
 })
 export class NgbToast implements AfterContentInit,
     OnChanges {

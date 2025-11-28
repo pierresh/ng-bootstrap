@@ -327,7 +327,10 @@ describe('ngb-progressbar', () => {
   });
 });
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   value = 10;
   max = 50;

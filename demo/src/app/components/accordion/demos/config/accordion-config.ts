@@ -2,9 +2,11 @@ import {Component} from '@angular/core';
 import {NgbAccordionConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-accordion-config',
-  templateUrl: './accordion-config.html',
-  providers: [NgbAccordionConfig] // add the NgbAccordionConfig to the component providers
+    selector: 'ngbd-accordion-config',
+    templateUrl: './accordion-config.html',
+    providers: [NgbAccordionConfig] // add the NgbAccordionConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdAccordionConfig {
   constructor(config: NgbAccordionConfig) {

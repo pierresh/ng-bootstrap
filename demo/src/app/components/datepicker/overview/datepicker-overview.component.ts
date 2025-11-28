@@ -7,12 +7,13 @@ import { NgbdDemoList } from '../../shared';
 import { NgbdOverview } from '../../shared/overview';
 
 @Component({
-  selector: 'ngbd-datepicker-overview',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './datepicker-overview.component.html',
-  host: {
-    '[class.overview]': 'true'
-  }
+    selector: 'ngbd-datepicker-overview',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './datepicker-overview.component.html',
+    host: {
+        '[class.overview]': 'true'
+    },
+    standalone: false
 })
 
 export class NgbdDatepickerOverviewComponent {

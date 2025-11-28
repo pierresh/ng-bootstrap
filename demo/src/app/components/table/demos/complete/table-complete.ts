@@ -8,7 +8,10 @@ import {NgbdSortableHeader, SortEvent} from './sortable.directive';
 
 
 @Component(
-    {selector: 'ngbd-table-complete', templateUrl: './table-complete.html', providers: [CountryService, DecimalPipe]})
+    {
+    selector: 'ngbd-table-complete', templateUrl: './table-complete.html', providers: [CountryService, DecimalPipe],
+    standalone: false
+})
 export class NgbdTableComplete {
   countries$: Observable<Country[]>;
   total$: Observable<number>;

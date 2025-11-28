@@ -140,7 +140,10 @@ describe('ngb-datepicker-navigation', () => {
 
 });
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   date = new NgbDate(2016, 8, 1);
   prevDisabled = false;

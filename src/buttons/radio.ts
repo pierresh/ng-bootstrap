@@ -12,9 +12,10 @@ let nextId = 0;
  * either in a reactive or template-driven way.
  */
 @Directive({
-  selector: '[ngbRadioGroup]',
-  host: {'role': 'radiogroup'},
-  providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbRadioGroup), multi: true}]
+    selector: '[ngbRadioGroup]',
+    host: { 'role': 'radiogroup' },
+    providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbRadioGroup), multi: true }],
+    standalone: false
 })
 export class NgbRadioGroup implements ControlValueAccessor {
   private _radios: Set<NgbRadio> = new Set<NgbRadio>();
@@ -72,15 +73,16 @@ export class NgbRadioGroup implements ControlValueAccessor {
  * [`NgbRadioGroup`](#/components/buttons/api#NgbRadioGroup).
  */
 @Directive({
-  selector: '[ngbButton][type=radio]',
-  host: {
-    '[checked]': 'checked',
-    '[disabled]': 'disabled',
-    '[name]': 'nameAttr',
-    '(change)': 'onChange()',
-    '(focus)': 'focused = true',
-    '(blur)': 'focused = false'
-  }
+    selector: '[ngbButton][type=radio]',
+    host: {
+        '[checked]': 'checked',
+        '[disabled]': 'disabled',
+        '[name]': 'nameAttr',
+        '(change)': 'onChange()',
+        '(focus)': 'focused = true',
+        '(blur)': 'focused = false'
+    },
+    standalone: false
 })
 export class NgbRadio implements OnDestroy {
   static ngAcceptInputType_disabled: boolean | '';

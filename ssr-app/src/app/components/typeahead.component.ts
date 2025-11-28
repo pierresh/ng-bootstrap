@@ -5,10 +5,11 @@ import { map } from 'rxjs/operators';
 const VALUES = ['one', 'two', 'three'];
 
 @Component({
-  selector: 'typeahead-component',
-  template: `
+    selector: 'typeahead-component',
+    template: `
     <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
-  `
+  `,
+    standalone: false
 })
 export class TypeaheadComponent {
   model = 'one';

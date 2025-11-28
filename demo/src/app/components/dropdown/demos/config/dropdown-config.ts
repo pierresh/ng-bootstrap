@@ -2,9 +2,11 @@ import {Component} from '@angular/core';
 import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-dropdown-config',
-  templateUrl: './dropdown-config.html',
-  providers: [NgbDropdownConfig] // add NgbDropdownConfig to the component providers
+    selector: 'ngbd-dropdown-config',
+    templateUrl: './dropdown-config.html',
+    providers: [NgbDropdownConfig] // add NgbDropdownConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdDropdownConfig {
   constructor(config: NgbDropdownConfig) {

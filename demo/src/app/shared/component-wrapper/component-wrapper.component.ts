@@ -11,8 +11,9 @@ import { environment } from '../../../environments/environment';
 export type TableOfContents = {fragment: string, title: string}[];
 
 @Component({
-  selector: 'component-wrapper',
-  templateUrl: 'component-wrapper.component.html'
+    selector: 'component-wrapper',
+    templateUrl: 'component-wrapper.component.html',
+    standalone: false
 })
 
 export class ComponentWrapper implements OnDestroy {

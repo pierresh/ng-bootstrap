@@ -38,7 +38,10 @@ let nextId = 0;
 /**
  * A directive that wraps the individual carousel slide.
  */
-@Directive({selector: 'ng-template[ngbSlide]'})
+@Directive({
+    selector: 'ng-template[ngbSlide]',
+    standalone: false
+})
 export class NgbSlide {
   /**
    * Slide id that must be unique for the entire document.
@@ -63,23 +66,23 @@ export class NgbSlide {
  * Allows to set intervals, change the way user interacts with the slides and provides a programmatic API.
  */
 @Component({
-  selector: 'ngb-carousel',
-  exportAs: 'ngbCarousel',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  host: {
-    'class': 'carousel slide',
-    '[style.display]': '"block"',
-    'tabIndex': '0',
-    '(keydown.arrowLeft)': 'keyboard && arrowLeft()',
-    '(keydown.arrowRight)': 'keyboard && arrowRight()',
-    '(mouseenter)': 'mouseHover = true',
-    '(mouseleave)': 'mouseHover = false',
-    '(focusin)': 'focused = true',
-    '(focusout)': 'focused = false',
-    '[attr.aria-activedescendant]': `'slide-' + activeId`
-  },
-  template: `
+    selector: 'ngb-carousel',
+    exportAs: 'ngbCarousel',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    host: {
+        'class': 'carousel slide',
+        '[style.display]': '"block"',
+        'tabIndex': '0',
+        '(keydown.arrowLeft)': 'keyboard && arrowLeft()',
+        '(keydown.arrowRight)': 'keyboard && arrowRight()',
+        '(mouseenter)': 'mouseHover = true',
+        '(mouseleave)': 'mouseHover = false',
+        '(focusin)': 'focused = true',
+        '(focusout)': 'focused = false',
+        '[attr.aria-activedescendant]': `'slide-' + activeId`
+    },
+    template: `
     <ol class="carousel-indicators" [class.sr-only]="!showNavigationIndicators" role="tablist">
       <li *ngFor="let slide of slides" [class.active]="slide.id === activeId"
           role="tab" [attr.aria-labelledby]="'slide-' + slide.id" [attr.aria-controls]="'slide-' + slide.id"
@@ -102,7 +105,8 @@ export class NgbSlide {
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only" i18n="@@ngb.carousel.next">Next</span>
     </a>
-  `
+  `,
+    standalone: false
 })
 export class NgbCarousel implements AfterContentChecked,
     AfterContentInit, AfterViewInit, OnDestroy {

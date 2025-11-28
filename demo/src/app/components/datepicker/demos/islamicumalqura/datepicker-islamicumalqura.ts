@@ -27,12 +27,13 @@ export class IslamicI18n extends NgbDatepickerI18n {
 }
 
 @Component({
-  selector: 'ngbd-datepicker-islamicumalqura',
-  templateUrl: './datepicker-islamicumalqura.html',
-  providers: [
-    {provide: NgbCalendar, useClass: NgbCalendarIslamicUmalqura},
-    {provide: NgbDatepickerI18n, useClass: IslamicI18n}
-  ]
+    selector: 'ngbd-datepicker-islamicumalqura',
+    templateUrl: './datepicker-islamicumalqura.html',
+    providers: [
+        { provide: NgbCalendar, useClass: NgbCalendarIslamicUmalqura },
+        { provide: NgbDatepickerI18n, useClass: IslamicI18n }
+    ],
+    standalone: false
 })
 export class NgbdDatepickerIslamicumalqura {
 

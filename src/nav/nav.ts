@@ -51,7 +51,10 @@ export interface NgbNavContentContext {
  *
  * @since 5.2.0
  */
-@Directive({selector: 'ng-template[ngbNavContent]'})
+@Directive({
+    selector: 'ng-template[ngbNavContent]',
+    standalone: false
+})
 export class NgbNavContent {
   constructor(public templateRef: TemplateRef<any>) {}
 }
@@ -62,7 +65,10 @@ export class NgbNavContent {
  *
  * @since 5.2.0
  */
-@Directive({selector: '[ngbNavItem]', exportAs: 'ngbNavItem', host: {'[class.nav-item]': 'true'}})
+@Directive({
+    selector: '[ngbNavItem]', exportAs: 'ngbNavItem', host: { '[class.nav-item]': 'true' },
+    standalone: false
+})
 export class NgbNavItem implements AfterContentChecked, OnInit {
   private _nav: NgbNav;
 
@@ -151,20 +157,21 @@ export class NgbNavItem implements AfterContentChecked, OnInit {
  * @since 5.2.0
  */
 @Directive({
-  selector: '[ngbNav]',
-  exportAs: 'ngbNav',
-  host: {
-    '[class.nav]': 'true',
-    '[class.flex-column]': `orientation === 'vertical'`,
-    '[attr.aria-orientation]': `orientation === 'vertical' && roles === 'tablist' ? 'vertical' : undefined`,
-    '[attr.role]': `role ? role : roles ? 'tablist' : undefined`,
-    '(keydown.arrowLeft)': 'onKeyDown($event)',
-    '(keydown.arrowRight)': 'onKeyDown($event)',
-    '(keydown.arrowDown)': 'onKeyDown($event)',
-    '(keydown.arrowUp)': 'onKeyDown($event)',
-    '(keydown.Home)': 'onKeyDown($event)',
-    '(keydown.End)': 'onKeyDown($event)'
-  }
+    selector: '[ngbNav]',
+    exportAs: 'ngbNav',
+    host: {
+        '[class.nav]': 'true',
+        '[class.flex-column]': `orientation === 'vertical'`,
+        '[attr.aria-orientation]': `orientation === 'vertical' && roles === 'tablist' ? 'vertical' : undefined`,
+        '[attr.role]': `role ? role : roles ? 'tablist' : undefined`,
+        '(keydown.arrowLeft)': 'onKeyDown($event)',
+        '(keydown.arrowRight)': 'onKeyDown($event)',
+        '(keydown.arrowDown)': 'onKeyDown($event)',
+        '(keydown.arrowUp)': 'onKeyDown($event)',
+        '(keydown.Home)': 'onKeyDown($event)',
+        '(keydown.End)': 'onKeyDown($event)'
+    },
+    standalone: false
 })
 export class NgbNav implements AfterContentInit,
     OnChanges, OnDestroy {
@@ -390,21 +397,22 @@ export class NgbNav implements AfterContentInit,
  * @since 5.2.0
  */
 @Directive({
-  selector: 'a[ngbNavLink]',
-  host: {
-    '[id]': 'navItem.domId',
-    '[class.nav-link]': 'true',
-    '[class.nav-item]': 'hasNavItemClass()',
-    '[attr.role]': `role ? role : nav.roles ? 'tab' : undefined`,
-    'href': '',
-    '[class.active]': 'navItem.active',
-    '[class.disabled]': 'navItem.disabled',
-    '[attr.tabindex]': 'navItem.disabled ? -1 : undefined',
-    '[attr.aria-controls]': 'navItem.isPanelInDom() ? navItem.panelDomId : null',
-    '[attr.aria-selected]': 'navItem.active',
-    '[attr.aria-disabled]': 'navItem.disabled',
-    '(click)': 'nav.click(navItem); $event.preventDefault()'
-  }
+    selector: 'a[ngbNavLink]',
+    host: {
+        '[id]': 'navItem.domId',
+        '[class.nav-link]': 'true',
+        '[class.nav-item]': 'hasNavItemClass()',
+        '[attr.role]': `role ? role : nav.roles ? 'tab' : undefined`,
+        'href': '',
+        '[class.active]': 'navItem.active',
+        '[class.disabled]': 'navItem.disabled',
+        '[attr.tabindex]': 'navItem.disabled ? -1 : undefined',
+        '[attr.aria-controls]': 'navItem.isPanelInDom() ? navItem.panelDomId : null',
+        '[attr.aria-selected]': 'navItem.active',
+        '[attr.aria-disabled]': 'navItem.disabled',
+        '(click)': 'nav.click(navItem); $event.preventDefault()'
+    },
+    standalone: false
 })
 export class NgbNavLink {
   constructor(

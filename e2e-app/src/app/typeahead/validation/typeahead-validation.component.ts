@@ -66,7 +66,10 @@ const states = [
   'Wyoming'
 ];
 
-@Component({templateUrl: './typeahead-validation.component.html'})
+@Component({
+    templateUrl: './typeahead-validation.component.html',
+    standalone: false
+})
 export class TypeaheadValidationComponent {
   model: any;
   public field = new FormControl(null, {updateOn: 'blur'});

@@ -67,9 +67,10 @@ const states: State[] = [
 ];
 
 @Component({
-  selector: 'ngbd-typeahead-prevent-manual-entry',
-  templateUrl: './typeahead-prevent-manual-entry.html',
-  styles: [`.form-control { width: 300px; }`]
+    selector: 'ngbd-typeahead-prevent-manual-entry',
+    templateUrl: './typeahead-prevent-manual-entry.html',
+    styles: [`.form-control { width: 300px; }`],
+    standalone: false
 })
 export class NgbdTypeaheadPreventManualEntry {
   public model: State;

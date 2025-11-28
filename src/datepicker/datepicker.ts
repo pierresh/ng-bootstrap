@@ -105,7 +105,10 @@ export interface NgbDatepickerState {
  *
  * @since 5.3.0
  */
-@Directive({selector: 'ng-template[ngbDatepickerContent]'})
+@Directive({
+    selector: 'ng-template[ngbDatepickerContent]',
+    standalone: false
+})
 export class NgbDatepickerContent {
   constructor(public templateRef: TemplateRef<any>) {}
 }
@@ -116,12 +119,12 @@ export class NgbDatepickerContent {
  * `NgbDatepicker` is meant to be displayed inline on a page or put inside a popup.
  */
 @Component({
-  exportAs: 'ngbDatepicker',
-  selector: 'ngb-datepicker',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./datepicker.scss'],
-  template: `
+    exportAs: 'ngbDatepicker',
+    selector: 'ngb-datepicker',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./datepicker.scss'],
+    template: `
     <ng-template #defaultDayTemplate let-date="date" let-currentMonth="currentMonth" let-selected="selected"
                  let-disabled="disabled" let-focused="focused">
       <div ngbDatepickerDayView
@@ -162,8 +165,8 @@ export class NgbDatepickerContent {
 
     <ng-template [ngTemplateOutlet]="footerTemplate"></ng-template>
   `,
-  providers:
-      [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbDatepicker), multi: true}, NgbDatepickerService]
+    providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgbDatepicker), multi: true }, NgbDatepickerService],
+    standalone: false
 })
 export class NgbDatepicker implements AfterViewInit,
     OnDestroy, OnChanges, OnInit, ControlValueAccessor {
@@ -508,11 +511,11 @@ export class NgbDatepicker implements AfterViewInit,
  * @since 5.3.0
  */
 @Component({
-  selector: 'ngb-datepicker-month',
-  host: {'role': 'grid', '(keydown)': 'onKeyDown($event)'},
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./datepicker-month.scss'],
-  template: `
+    selector: 'ngb-datepicker-month',
+    host: { 'role': 'grid', '(keydown)': 'onKeyDown($event)' },
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./datepicker-month.scss'],
+    template: `
     <div *ngIf="viewModel.weekdays.length > 0" class="ngb-dp-week ngb-dp-weekdays" role="row">
       <div *ngIf="datepicker.showWeekNumbers" class="ngb-dp-weekday ngb-dp-showweek small">{{ i18n.getWeekLabel() }}</div>
       <div *ngFor="let weekday of viewModel.weekdays" class="ngb-dp-weekday small" role="columnheader">{{ weekday }}</div>
@@ -532,7 +535,8 @@ export class NgbDatepicker implements AfterViewInit,
         </div>
       </div>
     </ng-template>
-  `
+  `,
+    standalone: false
 })
 export class NgbDatepickerMonth {
   /**

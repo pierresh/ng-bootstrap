@@ -2,9 +2,11 @@ import {Component} from '@angular/core';
 import {NgbPopoverConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-popover-config',
-  templateUrl: './popover-config.html',
-  providers: [NgbPopoverConfig] // add NgbPopoverConfig to the component providers
+    selector: 'ngbd-popover-config',
+    templateUrl: './popover-config.html',
+    providers: [NgbPopoverConfig] // add NgbPopoverConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdPopoverConfig {
   constructor(config: NgbPopoverConfig) {

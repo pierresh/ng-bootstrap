@@ -12,9 +12,10 @@ const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'C
   'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 @Component({
-  selector: 'ngbd-typeahead-format',
-  templateUrl: './typeahead-format.html',
-  styles: [`.form-control { width: 300px; }`]
+    selector: 'ngbd-typeahead-format',
+    templateUrl: './typeahead-format.html',
+    styles: [`.form-control { width: 300px; }`],
+    standalone: false
 })
 export class NgbdTypeaheadFormat {
   public model: any;

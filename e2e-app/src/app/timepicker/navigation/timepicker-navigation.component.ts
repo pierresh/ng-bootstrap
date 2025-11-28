@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 
 @Component({
-  templateUrl: './timepicker-navigation.component.html',
+    templateUrl: './timepicker-navigation.component.html',
+    standalone: false
 })
 export class TimepickerNavigationComponent {
   time = {hour: 13, minute: 30, second: 30};

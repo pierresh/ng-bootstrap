@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  template: `
+    template: `
     <div class="modal-header">
       <h4 class="modal-title">Hi there!</h4>
       <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
@@ -16,7 +16,8 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
     </div>
-  `
+  `,
+    standalone: false
 })
 export class NgbdModal1Content {
   constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
@@ -29,7 +30,7 @@ export class NgbdModal1Content {
 }
 
 @Component({
-  template: `
+    template: `
     <div class="modal-header">
       <h4 class="modal-title">Hi there!</h4>
       <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
@@ -42,15 +43,17 @@ export class NgbdModal1Content {
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
     </div>
-  `
+  `,
+    standalone: false
 })
 export class NgbdModal2Content {
   constructor(public activeModal: NgbActiveModal) {}
 }
 
 @Component({
-  selector: 'ngbd-modal-stacked',
-  templateUrl: './modal-stacked.html'
+    selector: 'ngbd-modal-stacked',
+    templateUrl: './modal-stacked.html',
+    standalone: false
 })
 export class NgbdModalStacked {
   modalsNumber = 0;

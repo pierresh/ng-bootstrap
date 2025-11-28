@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {NgbCalendar, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-datepicker-footertemplate',
-  templateUrl: './datepicker-footertemplate.html',
+    selector: 'ngbd-datepicker-footertemplate',
+    templateUrl: './datepicker-footertemplate.html',
+    standalone: false
 })
 export class NgbdDatepickerFootertemplate {
   model: NgbDateStruct;

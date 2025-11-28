@@ -546,7 +546,10 @@ describe('ngbRadioGroup', () => {
   });
 });
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   form = new FormGroup({control: new FormControl('', Validators.required)});
   disabledControl = new FormControl({value: '', disabled: true});
@@ -560,7 +563,10 @@ class TestComponent {
   checked: any;
 }
 
-@Component({selector: 'test-cmp-on-push', template: '', changeDetection: ChangeDetectionStrategy.OnPush})
+@Component({
+    selector: 'test-cmp-on-push', template: '', changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
+})
 class TestComponentOnPush {
   model = 'one';
   values = ['one', 'two', 'three'];

@@ -94,13 +94,14 @@ if (isBrowserVisible('ngb-collapse animations')) {
   describe('ngb-collapse animations', () => {
 
     @Component({
-      template: `
+    template: `
         <button (click)="c.toggle()">Collapse!</button>
         <div [(ngbCollapse)]="collapsed" #c="ngbCollapse" (ngbCollapseChange)="onCollapse()"
           (shown)="onShown()" (hidden)="onHidden()"></div>
       `,
-      host: {'[class.ngb-reduce-motion]': 'reduceMotion'}
-    })
+    host: { '[class.ngb-reduce-motion]': 'reduceMotion' },
+    standalone: false
+})
     class TestAnimationComponent {
       collapsed = false;
       reduceMotion = true;
@@ -250,7 +251,10 @@ if (isBrowserVisible('ngb-collapse animations')) {
   });
 }
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   collapsed = false;
 }

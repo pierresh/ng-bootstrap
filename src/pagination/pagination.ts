@@ -80,7 +80,10 @@ export interface NgbPaginationPagesContext {
  *
  * @since 4.1.0
  */
-@Directive({selector: 'ng-template[ngbPaginationEllipsis]'})
+@Directive({
+    selector: 'ng-template[ngbPaginationEllipsis]',
+    standalone: false
+})
 export class NgbPaginationEllipsis {
   constructor(public templateRef: TemplateRef<NgbPaginationLinkContext>) {}
 }
@@ -90,7 +93,10 @@ export class NgbPaginationEllipsis {
  *
  * @since 4.1.0
  */
-@Directive({selector: 'ng-template[ngbPaginationFirst]'})
+@Directive({
+    selector: 'ng-template[ngbPaginationFirst]',
+    standalone: false
+})
 export class NgbPaginationFirst {
   constructor(public templateRef: TemplateRef<NgbPaginationLinkContext>) {}
 }
@@ -100,7 +106,10 @@ export class NgbPaginationFirst {
  *
  * @since 4.1.0
  */
-@Directive({selector: 'ng-template[ngbPaginationLast]'})
+@Directive({
+    selector: 'ng-template[ngbPaginationLast]',
+    standalone: false
+})
 export class NgbPaginationLast {
   constructor(public templateRef: TemplateRef<NgbPaginationLinkContext>) {}
 }
@@ -110,7 +119,10 @@ export class NgbPaginationLast {
  *
  * @since 4.1.0
  */
-@Directive({selector: 'ng-template[ngbPaginationNext]'})
+@Directive({
+    selector: 'ng-template[ngbPaginationNext]',
+    standalone: false
+})
 export class NgbPaginationNext {
   constructor(public templateRef: TemplateRef<NgbPaginationLinkContext>) {}
 }
@@ -120,7 +132,10 @@ export class NgbPaginationNext {
  *
  * @since 4.1.0
  */
-@Directive({selector: 'ng-template[ngbPaginationNumber]'})
+@Directive({
+    selector: 'ng-template[ngbPaginationNumber]',
+    standalone: false
+})
 export class NgbPaginationNumber {
   constructor(public templateRef: TemplateRef<NgbPaginationNumberContext>) {}
 }
@@ -130,7 +145,10 @@ export class NgbPaginationNumber {
  *
  * @since 4.1.0
  */
-@Directive({selector: 'ng-template[ngbPaginationPrevious]'})
+@Directive({
+    selector: 'ng-template[ngbPaginationPrevious]',
+    standalone: false
+})
 export class NgbPaginationPrevious {
   constructor(public templateRef: TemplateRef<NgbPaginationLinkContext>) {}
 }
@@ -140,7 +158,10 @@ export class NgbPaginationPrevious {
  *
  * @since 9.1.0
  */
-@Directive({selector: 'ng-template[ngbPaginationPages]'})
+@Directive({
+    selector: 'ng-template[ngbPaginationPages]',
+    standalone: false
+})
 export class NgbPaginationPages {
   constructor(public templateRef: TemplateRef<NgbPaginationPagesContext>) {}
 }
@@ -149,10 +170,10 @@ export class NgbPaginationPages {
  * A component that displays page numbers and allows to customize them in several ways.
  */
 @Component({
-  selector: 'ngb-pagination',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {'role': 'navigation'},
-  template: `
+    selector: 'ngb-pagination',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: { 'role': 'navigation' },
+    template: `
     <ng-template #first><span aria-hidden="true" i18n="@@ngb.pagination.first">&laquo;&laquo;</span></ng-template>
     <ng-template #previous><span aria-hidden="true" i18n="@@ngb.pagination.previous">&laquo;</span></ng-template>
     <ng-template #next><span aria-hidden="true" i18n="@@ngb.pagination.next">&raquo;</span></ng-template>
@@ -219,7 +240,8 @@ export class NgbPaginationPages {
         </a>
       </li>
     </ul>
-  `
+  `,
+    standalone: false
 })
 export class NgbPagination implements OnChanges {
   pageCount = 0;

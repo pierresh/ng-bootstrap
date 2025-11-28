@@ -9,8 +9,9 @@ export const componentsList = [
 export const deprecatedComponentList = ['Tabset'];
 
 @Component({
-  selector: 'ngbd-side-nav',
-  templateUrl: './side-nav.component.html',
+    selector: 'ngbd-side-nav',
+    templateUrl: './side-nav.component.html',
+    standalone: false
 })
 export class SideNavComponent {
   components = componentsList;

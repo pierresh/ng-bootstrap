@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ngbd-popover-container',
-  templateUrl: './popover-container.html',
-  styles: ['.card { overflow: hidden }']
+    selector: 'ngbd-popover-container',
+    templateUrl: './popover-container.html',
+    styles: ['.card { overflow: hidden }'],
+    standalone: false
 })
 export class NgbdPopoverContainer {
 }

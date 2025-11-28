@@ -33,17 +33,18 @@ import {NgbTooltipConfig} from './tooltip-config';
 let nextId = 0;
 
 @Component({
-  selector: 'ngb-tooltip-window',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  host: {
-    '[class]': '"tooltip" + (tooltipClass ? " " + tooltipClass : "")',
-    '[class.fade]': 'animation',
-    'role': 'tooltip',
-    '[id]': 'id'
-  },
-  template: `<div class="arrow"></div><div class="tooltip-inner"><ng-content></ng-content></div>`,
-  styleUrls: ['./tooltip.scss']
+    selector: 'ngb-tooltip-window',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    host: {
+        '[class]': '"tooltip" + (tooltipClass ? " " + tooltipClass : "")',
+        '[class.fade]': 'animation',
+        'role': 'tooltip',
+        '[id]': 'id'
+    },
+    template: `<div class="arrow"></div><div class="tooltip-inner"><ng-content></ng-content></div>`,
+    styleUrls: ['./tooltip.scss'],
+    standalone: false
 })
 export class NgbTooltipWindow {
   @Input() animation: boolean;
@@ -54,7 +55,10 @@ export class NgbTooltipWindow {
 /**
  * A lightweight and extensible directive for fancy tooltip creation.
  */
-@Directive({selector: '[ngbTooltip]', exportAs: 'ngbTooltip'})
+@Directive({
+    selector: '[ngbTooltip]', exportAs: 'ngbTooltip',
+    standalone: false
+})
 export class NgbTooltip implements OnInit, OnDestroy, OnChanges {
   static ngAcceptInputType_autoClose: boolean | string;
 

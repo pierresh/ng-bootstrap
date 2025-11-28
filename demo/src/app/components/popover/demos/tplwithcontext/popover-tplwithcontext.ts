@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ngbd-popover-tplwithcontext',
-  templateUrl: './popover-tplwithcontext.html'
+    selector: 'ngbd-popover-tplwithcontext',
+    templateUrl: './popover-tplwithcontext.html',
+    standalone: false
 })
 export class NgbdPopoverTplwithcontext {
   name = 'World';

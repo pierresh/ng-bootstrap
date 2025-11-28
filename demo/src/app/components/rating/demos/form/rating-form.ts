@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'ngbd-rating-form',
-  templateUrl: './rating-form.html'
+    selector: 'ngbd-rating-form',
+    templateUrl: './rating-form.html',
+    standalone: false
 })
 export class NgbdRatingForm {
   ctrl = new FormControl(null, Validators.required);

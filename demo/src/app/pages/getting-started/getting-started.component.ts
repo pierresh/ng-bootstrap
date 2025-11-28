@@ -3,8 +3,9 @@ import {Snippet} from '../../shared/code/snippet';
 import {versions} from '../../../environments/versions';
 
 @Component({
-  templateUrl: './getting-started.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl: './getting-started.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class GettingStartedPage {
 

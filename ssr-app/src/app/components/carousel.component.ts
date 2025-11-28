@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'carousel-component',
-  template: `
+    selector: 'carousel-component',
+    template: `
     <ngb-carousel>
       <ng-template ngbSlide>
         <img src="/one.jpeg" alt="Random first slide">
@@ -26,7 +26,8 @@ import { Component } from '@angular/core';
         </div>
       </ng-template>
     </ngb-carousel>
-  `
+  `,
+    standalone: false
 })
 export class CarouselComponent {
 }

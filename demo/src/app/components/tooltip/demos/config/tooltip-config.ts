@@ -2,9 +2,11 @@ import {Component} from '@angular/core';
 import {NgbTooltipConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-tooltip-config',
-  templateUrl: './tooltip-config.html',
-  providers: [NgbTooltipConfig] // add NgbTooltipConfig to the component providers
+    selector: 'ngbd-tooltip-config',
+    templateUrl: './tooltip-config.html',
+    providers: [NgbTooltipConfig] // add NgbTooltipConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdTooltipConfig {
   constructor(config: NgbTooltipConfig) {

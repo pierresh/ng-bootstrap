@@ -9,10 +9,10 @@ import {Analytics} from '../../../shared/analytics/analytics';
  * For Config services, use NgbdApiDocsConfig instead.
  */
 @Component({
-  selector: 'ngbd-api-docs-class',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './api-docs-class.component.html',
-  styles: [`
+    selector: 'ngbd-api-docs-class',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './api-docs-class.component.html',
+    styles: [`
     .label-cell {
       width: 25%;
     }
@@ -20,7 +20,8 @@ import {Analytics} from '../../../shared/analytics/analytics';
       width: 75%;
     }
     `
-  ]
+    ],
+    standalone: false
 })
 export class NgbdApiDocsClass {
   apiDocs: ClassDesc;

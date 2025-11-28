@@ -6,9 +6,10 @@ import {NgbdOverview} from '../../shared/overview';
 
 
 @Component({
-  selector: 'ngbd-pagination-overview',
-  templateUrl: './pagination-overview.component.html',
-  host: {'[class.overview]': 'true'}
+    selector: 'ngbd-pagination-overview',
+    templateUrl: './pagination-overview.component.html',
+    host: { '[class.overview]': 'true' },
+    standalone: false
 })
 export class NgbdPaginationOverviewComponent {
   NGFOR = Snippet({

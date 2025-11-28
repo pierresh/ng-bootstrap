@@ -1272,7 +1272,10 @@ describe('ngb-datepicker', () => {
   });
 });
 
-@Component({selector: 'test-cmp', template: ''})
+@Component({
+    selector: 'test-cmp', template: '',
+    standalone: false
+})
 class TestComponent {
   date = {year: 2016, month: 8};
   displayMonths = 1;

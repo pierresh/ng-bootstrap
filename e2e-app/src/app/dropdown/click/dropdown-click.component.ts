@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  template: `
+    template: `
     <h3>Dropdown click tests</h3>
     <form>
       <div class="form-group form-inline">
@@ -23,7 +23,8 @@ import {Component} from '@angular/core';
         <span id="space-key" *ngIf="spaceKey" class="ml-3">SPACE-KEY</span>
       </div>
     </form>
-  `
+  `,
+    standalone: false
 })
 export class DropdownClickComponent {
   enterClick = false;

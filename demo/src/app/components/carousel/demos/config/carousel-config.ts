@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-carousel-config',
-  templateUrl: './carousel-config.html',
-  providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
+    selector: 'ngbd-carousel-config',
+    templateUrl: './carousel-config.html',
+    providers: [NgbCarouselConfig] // add NgbCarouselConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdCarouselConfig {
   images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);

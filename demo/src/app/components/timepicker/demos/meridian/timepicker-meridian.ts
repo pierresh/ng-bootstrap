@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ngbd-timepicker-meridian',
-  templateUrl: './timepicker-meridian.html'
+    selector: 'ngbd-timepicker-meridian',
+    templateUrl: './timepicker-meridian.html',
+    standalone: false
 })
 export class NgbdTimepickerMeridian {
   time = {hour: 13, minute: 30};

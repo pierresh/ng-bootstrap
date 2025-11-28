@@ -30,10 +30,11 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 }
 
 @Component({
-  selector: 'ngbd-datepicker-i18n',
-  templateUrl: './datepicker-i18n.html',
-  providers:
-      [I18n, {provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n}]  // define custom NgbDatepickerI18n provider
+    selector: 'ngbd-datepicker-i18n',
+    templateUrl: './datepicker-i18n.html',
+    providers: [I18n, { provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n }] // define custom NgbDatepickerI18n provider
+    ,
+    standalone: false
 })
 export class NgbdDatepickerI18n {
   model: NgbDateStruct;

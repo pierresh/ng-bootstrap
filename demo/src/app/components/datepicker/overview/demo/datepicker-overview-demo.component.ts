@@ -2,9 +2,9 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NgbCalendar, NgbDate, NgbDateNativeAdapter} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-datepicker-demo-overview',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
+    selector: 'ngbd-datepicker-demo-overview',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: `
     <div class="mb-3">
       <h5>Vacations </h5>
       <p>
@@ -37,7 +37,7 @@ import {NgbCalendar, NgbDate, NgbDateNativeAdapter} from '@ng-bootstrap/ng-boots
       [displayMonths]="2">
     </ngb-datepicker>
   `,
-  styles: [`
+    styles: [`
     .custom-day {
       text-align: center;
       display: inline-block;
@@ -66,7 +66,8 @@ import {NgbCalendar, NgbDate, NgbDateNativeAdapter} from '@ng-bootstrap/ng-boots
       background-color: rgba(2, 117, 216, 0.5);
     }
   `],
-  providers: [NgbDateNativeAdapter]
+    providers: [NgbDateNativeAdapter],
+    standalone: false
 })
 
 export class NgbdDatepickerOverviewDemoComponent {

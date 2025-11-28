@@ -1,7 +1,10 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef} from '@angular/core';
 import {ModalDismissReasons, NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
-@Component({templateUrl: './modal-autoclose.component.html', changeDetection: ChangeDetectionStrategy.OnPush})
+@Component({
+    templateUrl: './modal-autoclose.component.html', changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
+})
 export class ModalAutoCloseComponent {
   private modalRef: NgbModalRef | null = null;
   reason = '';

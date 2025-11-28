@@ -667,9 +667,10 @@ if (isBrowserVisible('ngb-tooltip animations')) {
   describe('ngb-tooltip animations', () => {
 
     @Component({
-      template: `<button ngbTooltip="Great tip!" triggers="click" (shown)="shown()" (hidden)="hidden()"></button>`,
-      host: {'[class.ngb-reduce-motion]': 'reduceMotion'}
-    })
+    template: `<button ngbTooltip="Great tip!" triggers="click" (shown)="shown()" (hidden)="hidden()"></button>`,
+    host: { '[class.ngb-reduce-motion]': 'reduceMotion' },
+    standalone: false
+})
     class TestAnimationComponent {
       reduceMotion = true;
       shown = () => {};
@@ -782,7 +783,10 @@ if (isBrowserVisible('ngb-tooltip animations')) {
   });
 }
 
-@Component({selector: 'test-cmpt', template: ``})
+@Component({
+    selector: 'test-cmpt', template: ``,
+    standalone: false
+})
 export class TestComponent {
   name: string | null = 'World';
   show = true;
@@ -801,11 +805,17 @@ export class TestComponent {
   }
 }
 
-@Component({selector: 'test-onpush-cmpt', changeDetection: ChangeDetectionStrategy.OnPush, template: ``})
+@Component({
+    selector: 'test-onpush-cmpt', changeDetection: ChangeDetectionStrategy.OnPush, template: ``,
+    standalone: false
+})
 export class TestOnPushComponent {
 }
 
-@Component({selector: 'test-hooks', template: `<div ngbTooltip="tooltip"></div>`})
+@Component({
+    selector: 'test-hooks', template: `<div ngbTooltip="tooltip"></div>`,
+    standalone: false
+})
 export class TestHooksComponent implements AfterViewInit {
   @ViewChild(NgbTooltip, {static: true}) tooltip;
 

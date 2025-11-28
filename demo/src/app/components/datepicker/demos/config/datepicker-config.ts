@@ -7,9 +7,11 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-datepicker-config',
-  templateUrl: './datepicker-config.html',
-  providers: [NgbInputDatepickerConfig] // add config to the component providers
+    selector: 'ngbd-datepicker-config',
+    templateUrl: './datepicker-config.html',
+    providers: [NgbInputDatepickerConfig] // add config to the component providers
+    ,
+    standalone: false
 })
 export class NgbdDatepickerConfig {
 

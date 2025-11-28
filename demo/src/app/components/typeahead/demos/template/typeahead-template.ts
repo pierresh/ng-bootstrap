@@ -59,9 +59,10 @@ const statesWithFlags: {name: string, flag: string}[] = [
 ];
 
 @Component({
-  selector: 'ngbd-typeahead-template',
-  templateUrl: './typeahead-template.html',
-  styles: [`.form-control { width: 300px; }`]
+    selector: 'ngbd-typeahead-template',
+    templateUrl: './typeahead-template.html',
+    styles: [`.form-control { width: 300px; }`],
+    standalone: false
 })
 export class NgbdTypeaheadTemplate {
   public model: any;

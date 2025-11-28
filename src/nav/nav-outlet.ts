@@ -18,14 +18,15 @@ import {ngbRunTransition, NgbTransitionOptions} from '../util/transition/ngbTran
 import {NgbNav, NgbNavItem} from './nav';
 
 @Directive({
-  selector: '[ngbNavPane]',
-  host: {
-    '[id]': 'item.panelDomId',
-    'class': 'tab-pane',
-    '[class.fade]': 'nav.animation',
-    '[attr.role]': 'role ? role : nav.roles ? "tabpanel" : undefined',
-    '[attr.aria-labelledby]': 'item.domId'
-  }
+    selector: '[ngbNavPane]',
+    host: {
+        '[id]': 'item.panelDomId',
+        'class': 'tab-pane',
+        '[class.fade]': 'nav.animation',
+        '[attr.role]': 'role ? role : nav.roles ? "tabpanel" : undefined',
+        '[attr.aria-labelledby]': 'item.domId'
+    },
+    standalone: false
 })
 export class NgbNavPane {
   @Input() item: NgbNavItem;
@@ -41,18 +42,19 @@ export class NgbNavPane {
  * @since 5.2.0
  */
 @Component({
-  selector: '[ngbNavOutlet]',
-  host: {'[class.tab-content]': 'true'},
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
+    selector: '[ngbNavOutlet]',
+    host: { '[class.tab-content]': 'true' },
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    template: `
     <ng-template ngFor let-item [ngForOf]="nav.items">
       <div ngbNavPane *ngIf="item.isPanelInDom() || isPanelTransitioning(item)" [item]="item" [nav]="nav" [role]="paneRole">
         <ng-template [ngTemplateOutlet]="item.contentTpl?.templateRef || null"
                      [ngTemplateOutletContext]="{$implicit: item.active || isPanelTransitioning(item)}"></ng-template>
       </div>
     </ng-template>
-  `
+  `,
+    standalone: false
 })
 export class NgbNavOutlet implements AfterViewInit {
   private _activePane: NgbNavPane | null = null;

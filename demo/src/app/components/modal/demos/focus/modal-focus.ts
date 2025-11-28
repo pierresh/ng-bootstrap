@@ -2,8 +2,8 @@ import {Component, Type} from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-modal-confirm',
-  template: `
+    selector: 'ngbd-modal-confirm',
+    template: `
   <div class="modal-header">
     <h4 class="modal-title" id="modal-title">Profile deletion</h4>
     <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
@@ -20,15 +20,16 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
     <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
     <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')">Ok</button>
   </div>
-  `
+  `,
+    standalone: false
 })
 export class NgbdModalConfirm {
   constructor(public modal: NgbActiveModal) {}
 }
 
 @Component({
-  selector: 'ngbd-modal-confirm-autofocus',
-  template: `
+    selector: 'ngbd-modal-confirm-autofocus',
+    template: `
   <div class="modal-header">
     <h4 class="modal-title" id="modal-title">Profile deletion</h4>
     <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
@@ -45,7 +46,8 @@ export class NgbdModalConfirm {
     <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
     <button type="button" ngbAutofocus class="btn btn-danger" (click)="modal.close('Ok click')">Ok</button>
   </div>
-  `
+  `,
+    standalone: false
 })
 export class NgbdModalConfirmAutofocus {
   constructor(public modal: NgbActiveModal) {}
@@ -57,8 +59,9 @@ const MODALS: {[name: string]: Type<any>} = {
 };
 
 @Component({
-  selector: 'ngbd-modal-focus',
-  templateUrl: './modal-focus.html'
+    selector: 'ngbd-modal-focus',
+    templateUrl: './modal-focus.html',
+    standalone: false
 })
 export class NgbdModalFocus {
   withAutofocus = `<button type="button" ngbAutofocus class="btn btn-danger"

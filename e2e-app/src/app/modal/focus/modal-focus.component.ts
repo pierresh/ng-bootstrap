@@ -1,7 +1,10 @@
 import {Component, TemplateRef} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
-@Component({templateUrl: './modal-focus.component.html'})
+@Component({
+    templateUrl: './modal-focus.component.html',
+    standalone: false
+})
 export class ModalFocusComponent {
   disabledButton = false;
 

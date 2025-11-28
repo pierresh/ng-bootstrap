@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'datepicker-component',
-  template: `
+    selector: 'datepicker-component',
+    template: `
     <form class="form-inline">
       <div class="form-group mr-5">
         <ngb-datepicker [(ngModel)]="model1" name="inline" [startDate]="model1"></ngb-datepicker>
@@ -18,7 +18,8 @@ import { Component } from '@angular/core';
         </div>
       </div>
     </form>
-  `
+  `,
+    standalone: false
 })
 export class DatepickerComponent {
   model1 = {year: 1789, month: 7, day: 14};

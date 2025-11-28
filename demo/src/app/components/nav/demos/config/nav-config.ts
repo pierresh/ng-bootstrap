@@ -2,9 +2,11 @@ import {Component} from '@angular/core';
 import {NgbNavConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'ngbd-nav-config',
-  templateUrl: './nav-config.html',
-  providers: [NgbNavConfig] // add NgbNavConfig to the component providers
+    selector: 'ngbd-nav-config',
+    templateUrl: './nav-config.html',
+    providers: [NgbNavConfig] // add NgbNavConfig to the component providers
+    ,
+    standalone: false
 })
 export class NgbdNavConfig {
   constructor(config: NgbNavConfig) {

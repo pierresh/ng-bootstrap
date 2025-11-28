@@ -3,8 +3,9 @@ import {Component} from '@angular/core';
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
 @Component({
-  selector: 'ngbd-pagination-customization',
-  templateUrl: './pagination-customization.html'
+    selector: 'ngbd-pagination-customization',
+    templateUrl: './pagination-customization.html',
+    standalone: false
 })
 export class NgbdPaginationCustomization {
   page = 4;

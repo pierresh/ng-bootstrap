@@ -53,12 +53,13 @@ export class NgbDatepickerI18nBuddhist extends NgbDatepickerI18n {
 }
 
 @Component({
-  selector: 'ngbd-datepicker-buddhist',
-  templateUrl: './datepicker-buddhist.html',
-  providers: [
-    { provide: NgbCalendar, useClass: NgbCalendarBuddhist },
-    { provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nBuddhist },
-  ],
+    selector: 'ngbd-datepicker-buddhist',
+    templateUrl: './datepicker-buddhist.html',
+    providers: [
+        { provide: NgbCalendar, useClass: NgbCalendarBuddhist },
+        { provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nBuddhist },
+    ],
+    standalone: false
 })
 export class NgbdDatepickerBuddhist {
   model: NgbDateStruct;

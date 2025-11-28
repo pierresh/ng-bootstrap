@@ -48,7 +48,10 @@ export interface NgbPanelHeaderContext {
  *
  * @since 4.1.0
  */
-@Directive({selector: 'ng-template[ngbPanelHeader]'})
+@Directive({
+    selector: 'ng-template[ngbPanelHeader]',
+    standalone: false
+})
 export class NgbPanelHeader {
   constructor(public templateRef: TemplateRef<any>) {}
 }
@@ -58,7 +61,10 @@ export class NgbPanelHeader {
  *
  * You can also use [`NgbPanelHeader`](#/components/accordion/api#NgbPanelHeader) to customize the full panel header.
  */
-@Directive({selector: 'ng-template[ngbPanelTitle]'})
+@Directive({
+    selector: 'ng-template[ngbPanelTitle]',
+    standalone: false
+})
 export class NgbPanelTitle {
   constructor(public templateRef: TemplateRef<any>) {}
 }
@@ -66,7 +72,10 @@ export class NgbPanelTitle {
 /**
  * A directive that wraps the accordion panel content.
  */
-@Directive({selector: 'ng-template[ngbPanelContent]'})
+@Directive({
+    selector: 'ng-template[ngbPanelContent]',
+    standalone: false
+})
 export class NgbPanelContent {
   constructor(public templateRef: TemplateRef<any>) {}
 }
@@ -74,7 +83,10 @@ export class NgbPanelContent {
 /**
  * A directive that wraps an individual accordion panel with title and collapsible content.
  */
-@Directive({selector: 'ngb-panel'})
+@Directive({
+    selector: 'ngb-panel',
+    standalone: false
+})
 export class NgbPanel implements AfterContentChecked {
   /**
    *  If `true`, the panel is disabled an can't be toggled.
@@ -175,7 +187,10 @@ export interface NgbPanelChangeEvent {
   preventDefault: () => void;
 }
 
-@Directive({selector: '[ngbRef]'})
+@Directive({
+    selector: '[ngbRef]',
+    standalone: false
+})
 export class NgbRefDirective implements OnInit, OnDestroy {
   @Output() ngbRef = new EventEmitter<HTMLElement | null>();
   constructor(private _El: ElementRef) {}
@@ -192,11 +207,11 @@ export class NgbRefDirective implements OnInit, OnDestroy {
  * headers.
  */
 @Component({
-  selector: 'ngb-accordion',
-  exportAs: 'ngbAccordion',
-  encapsulation: ViewEncapsulation.None,
-  host: {'class': 'accordion', 'role': 'tablist', '[attr.aria-multiselectable]': '!closeOtherPanels'},
-  template: `
+    selector: 'ngb-accordion',
+    exportAs: 'ngbAccordion',
+    encapsulation: ViewEncapsulation.None,
+    host: { 'class': 'accordion', 'role': 'tablist', '[attr.aria-multiselectable]': '!closeOtherPanels' },
+    template: `
     <ng-template #t ngbPanelHeader let-panel>
       <button class="btn btn-link" [ngbPanelToggle]="panel">
         {{panel.title}}<ng-template [ngTemplateOutlet]="panel.titleTpl?.templateRef"></ng-template>
@@ -216,7 +231,8 @@ export class NgbRefDirective implements OnInit, OnDestroy {
         </div>
       </div>
     </ng-template>
-  `
+  `,
+    standalone: false
 })
 export class NgbAccordion implements AfterContentChecked {
   @ContentChildren(NgbPanel) panels: QueryList<NgbPanel>;
@@ -446,15 +462,16 @@ export class NgbAccordion implements AfterContentChecked {
  * @since 4.1.0
  */
 @Directive({
-  selector: 'button[ngbPanelToggle]',
-  host: {
-    'type': 'button',
-    '[disabled]': 'panel.disabled',
-    '[class.collapsed]': '!panel.isOpen',
-    '[attr.aria-expanded]': 'panel.isOpen',
-    '[attr.aria-controls]': 'panel.id',
-    '(click)': 'accordion.toggle(panel.id)'
-  }
+    selector: 'button[ngbPanelToggle]',
+    host: {
+        'type': 'button',
+        '[disabled]': 'panel.disabled',
+        '[class.collapsed]': '!panel.isOpen',
+        '[attr.aria-expanded]': 'panel.isOpen',
+        '[attr.aria-controls]': 'panel.id',
+        '(click)': 'accordion.toggle(panel.id)'
+    },
+    standalone: false
 })
 export class NgbPanelToggle {
   static ngAcceptInputType_ngbPanelToggle: NgbPanel | '';

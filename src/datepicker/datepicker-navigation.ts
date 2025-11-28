@@ -4,11 +4,11 @@ import {NgbDate} from './ngb-date';
 import {NgbDatepickerI18n} from './datepicker-i18n';
 
 @Component({
-  selector: 'ngb-datepicker-navigation',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./datepicker-navigation.scss'],
-  template: `
+    selector: 'ngb-datepicker-navigation',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./datepicker-navigation.scss'],
+    template: `
     <div class="ngb-dp-arrow">
       <button type="button" class="btn btn-link ngb-dp-arrow-btn" (click)="onClickPrev($event)" [disabled]="prevDisabled"
               i18n-aria-label="@@ngb.datepicker.previous-month" aria-label="Previous month"
@@ -38,7 +38,8 @@ import {NgbDatepickerI18n} from './datepicker-i18n';
         <span class="ngb-dp-navigation-chevron"></span>
       </button>
     </div>
-    `
+    `,
+    standalone: false
 })
 export class NgbDatepickerNavigation {
   navigation = NavigationEvent;

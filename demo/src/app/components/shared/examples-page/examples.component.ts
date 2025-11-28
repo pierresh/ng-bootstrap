@@ -4,7 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {NgbdDemoList} from '../demo-list';
 
 @Component({
-  template: `
+    template: `
     <ngbd-widget-demo
       *ngFor="let demo of demos"
       [id]="demo.id"
@@ -18,7 +18,8 @@ import {NgbdDemoList} from '../demo-list';
     >
       <ng-template [ngComponentOutlet]="demo.type"></ng-template>
     </ngbd-widget-demo>
-  `
+  `,
+    standalone: false
 })
 export class NgbdExamplesPage {
   component: string;

@@ -3,8 +3,9 @@ import {environment} from '../../environments/environment';
 import { Snippet } from '../shared/code/snippet';
 
 @Component({
-  selector: 'ngbd-default',
-  templateUrl: './default.component.html'
+    selector: 'ngbd-default',
+    templateUrl: './default.component.html',
+    standalone: false
 })
 export class DefaultComponent {
   public version: string = environment.version;

@@ -1,6 +1,9 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
 
-@Component({templateUrl: './datepicker-autoclose.component.html', changeDetection: ChangeDetectionStrategy.OnPush})
+@Component({
+    templateUrl: './datepicker-autoclose.component.html', changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
+})
 export class DatepickerAutoCloseComponent {
   autoClose: boolean | 'inside' | 'outside' = true;
   model = null;

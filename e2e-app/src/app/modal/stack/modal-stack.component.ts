@@ -1,7 +1,10 @@
 import {Component, TemplateRef} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
-@Component({templateUrl: './modal-stack.component.html'})
+@Component({
+    templateUrl: './modal-stack.component.html',
+    standalone: false
+})
 export class ModalStackComponent {
   constructor(private modalService: NgbModal) {}
 
