@@ -13,10 +13,13 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
       require('karma-coverage'),
-      
+
     ],
     client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
+      jasmine: {
+        random: false // disable random test order for stability
+      }
     },
     coverageReporter: {
       dir: require('path').join(__dirname, '..', 'coverage'),
