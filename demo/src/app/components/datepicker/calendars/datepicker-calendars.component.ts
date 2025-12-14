@@ -107,7 +107,7 @@ const DEMOS = [
             [markup]="demo.markup"
             component="datepicker"
             >
-            <ng-template [ngComponentOutlet]="demo.type"></ng-template>
+            <ng-template [ngComponentOutlet]="$any(demo.type)"></ng-template>
           </ngbd-widget-demo>
         }
     `,
