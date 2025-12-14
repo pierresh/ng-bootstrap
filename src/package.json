@@ -1,11 +1,11 @@
 {
   "name": "@pierresh/ng-bootstrap",
-  "version": "11.20.0",
+  "version": "11.21.0",
   "peerDependencies": {
-    "@angular/common": "^20.0.0",
-    "@angular/core": "^20.0.0",
-    "@angular/forms": "^20.0.0",
-    "@angular/localize": "^20.0.0",
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/forms": "^21.0.0",
+    "@angular/localize": "^21.0.0",
     "@popperjs/core": "^2.10.2"
   },
   "dependencies": {

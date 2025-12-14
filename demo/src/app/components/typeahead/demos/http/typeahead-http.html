@@ -12,9 +12,13 @@ A typeahead example that gets values from the <code>WikipediaService</code>
   <div class="form-group">
     <label for="typeahead-http">Search for a wiki page:</label>
     <input id="typeahead-http" type="text" class="form-control mx-sm-3" [class.is-invalid]="searchFailed" [(ngModel)]="model" [ngbTypeahead]="search" placeholder="Wikipedia search" />
-    <small *ngIf="searching" class="form-text text-muted">searching...</small>
-    <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+    @if (searching) {
+      <small class="form-text text-muted">searching...</small>
+    }
+    @if (searchFailed) {
+      <div class="invalid-feedback">Sorry, suggestions could not be loaded.</div>
+    }
   </div>
 </fieldset>
 <hr>
-<pre>Model: {{ model | json }}</pre>
+  <pre>Model: {{ model | json }}</pre>

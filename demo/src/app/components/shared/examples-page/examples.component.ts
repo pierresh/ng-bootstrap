@@ -5,20 +5,21 @@ import {NgbdDemoList} from '../demo-list';
 
 @Component({
     template: `
-    <ngbd-widget-demo
-      *ngFor="let demo of demos"
-      [id]="demo.id"
-      [demoTitle]="demo.title"
-      [code]="demo.code"
-      [markup]="demo.markup"
-      [component]="component"
-      [files]="demo.files"
-      [showCode]="demo.showCode"
-      [showStackblitz]="demo.showStackblitz ?? true"
-    >
-      <ng-template [ngComponentOutlet]="demo.type"></ng-template>
-    </ngbd-widget-demo>
-  `,
+    @for (demo of demos; track demo) {
+      <ngbd-widget-demo
+        [id]="demo.id"
+        [demoTitle]="demo.title"
+        [code]="demo.code"
+        [markup]="demo.markup"
+        [component]="component"
+        [files]="demo.files"
+        [showCode]="demo.showCode"
+        [showStackblitz]="demo.showStackblitz ?? true"
+        >
+        <ng-template [ngComponentOutlet]="demo.type"></ng-template>
+      </ngbd-widget-demo>
+    }
+    `,
     standalone: false
 })
 export class NgbdExamplesPage {

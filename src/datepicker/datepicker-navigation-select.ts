@@ -26,17 +26,21 @@ import {NgbDatepickerI18n} from './datepicker-i18n';
       i18n-aria-label="@@ngb.datepicker.select-month" aria-label="Select month"
       i18n-title="@@ngb.datepicker.select-month" title="Select month"
       (change)="changeMonth($any($event).target.value)">
-        <option *ngFor="let m of months" [attr.aria-label]="i18n.getMonthFullName(m, date?.year)"
-                [value]="m">{{ i18n.getMonthShortName(m, date?.year) }}</option>
+      @for (m of months; track m) {
+        <option [attr.aria-label]="i18n.getMonthFullName(m, date?.year)"
+        [value]="m">{{ i18n.getMonthShortName(m, date?.year) }}</option>
+      }
     </select><select #year
-      [disabled]="disabled"
-      class="custom-select"
-      i18n-aria-label="@@ngb.datepicker.select-year" aria-label="Select year"
-      i18n-title="@@ngb.datepicker.select-year" title="Select year"
-      (change)="changeYear($any($event).target.value)">
-        <option *ngFor="let y of years" [value]="y">{{ i18n.getYearNumerals(y) }}</option>
+    [disabled]="disabled"
+    class="custom-select"
+    i18n-aria-label="@@ngb.datepicker.select-year" aria-label="Select year"
+    i18n-title="@@ngb.datepicker.select-year" title="Select year"
+    (change)="changeYear($any($event).target.value)">
+    @for (y of years; track y) {
+      <option [value]="y">{{ i18n.getYearNumerals(y) }}</option>
+    }
     </select>
-  `,
+    `,
     standalone: false
 })
 export class NgbDatepickerNavigationSelect implements AfterViewChecked {

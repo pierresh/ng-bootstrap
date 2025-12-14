@@ -57,18 +57,18 @@ export class NgbToastHeader {
     <ng-template #headerTpl>
       <strong class="mr-auto">{{header}}</strong>
     </ng-template>
-    <ng-template [ngIf]="contentHeaderTpl || header">
+    @if (contentHeaderTpl || header) {
       <div class="toast-header">
         <ng-template [ngTemplateOutlet]="contentHeaderTpl || headerTpl"></ng-template>
         <button type="button" class="close" aria-label="Close" i18n-aria-label="@@ngb.toast.close-aria" (click)="hide()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    </ng-template>
+    }
     <div class="toast-body">
       <ng-content></ng-content>
     </div>
-  `,
+    `,
     styleUrls: ['./toast.scss'],
     standalone: false
 })

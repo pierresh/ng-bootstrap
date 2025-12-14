@@ -13,11 +13,13 @@ import {NgbProgressbarConfig} from './progressbar-config';
     template: `
     <div class="progress-bar{{type ? ' bg-' + type : ''}}{{textType ? ' text-' + textType : ''}}
     {{animated ? ' progress-bar-animated' : ''}}{{striped ? ' progress-bar-striped' : ''}}"
-    role="progressbar" [style.width.%]="getPercentValue()"
-    [attr.aria-valuenow]="getValue()" aria-valuemin="0" [attr.aria-valuemax]="max">
-      <span *ngIf="showValue" i18n="@@ngb.progressbar.value">{{getValue() / max | percent}}</span><ng-content></ng-content>
-    </div>
-  `,
+      role="progressbar" [style.width.%]="getPercentValue()"
+      [attr.aria-valuenow]="getValue()" aria-valuemin="0" [attr.aria-valuemax]="max">
+      @if (showValue) {
+        <span i18n="@@ngb.progressbar.value">{{getValue() / max | percent}}</span>
+        }<ng-content></ng-content>
+      </div>
+    `,
     standalone: false
 })
 export class NgbProgressbar {

@@ -47,13 +47,15 @@ export class NgbNavPane {
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
-    <ng-template ngFor let-item [ngForOf]="nav.items">
-      <div ngbNavPane *ngIf="item.isPanelInDom() || isPanelTransitioning(item)" [item]="item" [nav]="nav" [role]="paneRole">
-        <ng-template [ngTemplateOutlet]="item.contentTpl?.templateRef || null"
-                     [ngTemplateOutletContext]="{$implicit: item.active || isPanelTransitioning(item)}"></ng-template>
-      </div>
-    </ng-template>
-  `,
+    @for (item of nav.items; track item) {
+      @if (item.isPanelInDom() || isPanelTransitioning(item)) {
+        <div ngbNavPane [item]="item" [nav]="nav" [role]="paneRole">
+          <ng-template [ngTemplateOutlet]="item.contentTpl?.templateRef || null"
+          [ngTemplateOutletContext]="{$implicit: item.active || isPanelTransitioning(item)}"></ng-template>
+        </div>
+      }
+    }
+    `,
     standalone: false
 })
 export class NgbNavOutlet implements AfterViewInit {

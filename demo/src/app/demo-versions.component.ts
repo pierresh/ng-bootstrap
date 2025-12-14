@@ -18,10 +18,12 @@ interface Version {
         ng-bootstrap v{{ current }}
       </a>
       <div ngbDropdownMenu aria-labelledby="demo-site-versions" class="dropdown-menu dropdown-menu-end">
-        <a ngbDropdownItem *ngFor="let version of versions$ | async" href="{{ version.url }}#{{ routerUrl }}">{{ version.text }}</a>
+        @for (version of versions$ | async; track version) {
+          <a ngbDropdownItem href="{{ version.url }}#{{ routerUrl }}">{{ version.text }}</a>
+        }
       </div>
     </div>
-  `,
+    `,
     standalone: false
 })
 

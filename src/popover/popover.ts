@@ -45,10 +45,12 @@ let nextId = 0;
     },
     template: `
     <div class="arrow"></div>
-    <h3 class="popover-header" *ngIf="title">
-      <ng-template #simpleTitle>{{title}}</ng-template>
-      <ng-template [ngTemplateOutlet]="isTitleTemplate() ? $any(title) : simpleTitle" [ngTemplateOutletContext]="context"></ng-template>
-    </h3>
+    @if (title) {
+      <h3 class="popover-header">
+        <ng-template #simpleTitle>{{title}}</ng-template>
+        <ng-template [ngTemplateOutlet]="isTitleTemplate() ? $any(title) : simpleTitle" [ngTemplateOutletContext]="context"></ng-template>
+      </h3>
+    }
     <div class="popover-body"><ng-content></ng-content></div>`,
     styleUrls: ['./popover.scss'],
     standalone: false

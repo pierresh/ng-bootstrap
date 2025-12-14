@@ -32,10 +32,12 @@ import {ngbAlertFadingTransition} from './alert-transition';
     host: { 'role': 'alert', 'class': 'alert show', '[class.fade]': 'animation', '[class.alert-dismissible]': 'dismissible' },
     template: `
     <ng-content></ng-content>
-    <button *ngIf="dismissible" type="button" class="close" aria-label="Close" i18n-aria-label="@@ngb.alert.close"
-      (click)="close()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    @if (dismissible) {
+      <button type="button" class="close" aria-label="Close" i18n-aria-label="@@ngb.alert.close"
+        (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    }
     `,
     styleUrls: ['./alert.scss'],
     standalone: false

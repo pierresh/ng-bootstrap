@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
     <form>
       <div class="form-group form-inline">
         <input type="text" class="form-control mr-1" style="width: 100px" placeholder="before" id="before"/>
-
+    
         <div class="input-group">
           <div ngbDropdown class="d-inline-block mr-3">
             <button class="btn btn-outline-secondary" id="dropdown" ngbDropdownToggle>Choose one</button>
@@ -16,14 +16,22 @@ import {Component} from '@angular/core';
             </div>
           </div>
         </div>
-
-        <span id="space-click" *ngIf="spaceClick" class="ml-3">SPACE-CLICK</span>
-        <span id="enter-click" *ngIf="enterClick" class="ml-3">ENTER-CLICK</span>
-        <span id="enter-key" *ngIf="enterKey" class="ml-3">ENTER-KEY</span>
-        <span id="space-key" *ngIf="spaceKey" class="ml-3">SPACE-KEY</span>
+    
+        @if (spaceClick) {
+          <span id="space-click" class="ml-3">SPACE-CLICK</span>
+        }
+        @if (enterClick) {
+          <span id="enter-click" class="ml-3">ENTER-CLICK</span>
+        }
+        @if (enterKey) {
+          <span id="enter-key" class="ml-3">ENTER-KEY</span>
+        }
+        @if (spaceKey) {
+          <span id="space-key" class="ml-3">SPACE-KEY</span>
+        }
       </div>
     </form>
-  `,
+    `,
     standalone: false
 })
 export class DropdownClickComponent {

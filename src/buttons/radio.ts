@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Directive, ElementRef, forwardRef, Input, OnDestroy, Renderer2} from '@angular/core';
+import {ChangeDetectorRef, Directive, ElementRef, forwardRef, HostBinding, Input, OnDestroy, Renderer2} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {NgbButtonLabel} from './label';
@@ -75,9 +75,6 @@ export class NgbRadioGroup implements ControlValueAccessor {
 @Directive({
     selector: '[ngbButton][type=radio]',
     host: {
-        '[checked]': 'checked',
-        '[disabled]': 'disabled',
-        '[name]': 'nameAttr',
         '(change)': 'onChange()',
         '(focus)': 'focused = true',
         '(blur)': 'focused = false'
@@ -113,6 +110,7 @@ export class NgbRadio implements OnDestroy {
   /**
    * If `true`, current radio button will be disabled.
    */
+  @HostBinding('attr.disabled')
   @Input()
   set disabled(isDisabled: boolean) {
     this._disabled = isDisabled !== false;
@@ -128,12 +126,14 @@ export class NgbRadio implements OnDestroy {
     }
   }
 
+  @HostBinding('attr.checked')
   get checked() { return this._checked; }
 
   get disabled() { return this._group.disabled || this._disabled; }
 
   get value() { return this._value; }
 
+  @HostBinding('attr.name')
   get nameAttr() { return this.name || this._group.name; }
 
   constructor(

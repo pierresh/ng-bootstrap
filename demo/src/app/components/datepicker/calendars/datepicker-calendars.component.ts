@@ -70,7 +70,7 @@ const DEMOS = [
       Default implementation is the <code>NgbCalendarGregorian</code>, but can be any
       calendar that has notion of days, months and years.
     </p>
-
+    
     <p>For instance, other calendar implementations available are:</p>
     <ul class="list-unstyled ml-4">
       <li><code>NgbCalendarHebrew</code> + <code>NgbDatepickerI18nHebrew</code></li>
@@ -79,36 +79,38 @@ const DEMOS = [
       <li><code>NgbCalendarIslamicUmalqura</code></li>
       <li><code>NgbCalendarBuddhist</code></li>
     </ul>
-
+    
     <ngb-alert [dismissible]="false">
       Please note that calendar support is experimental!
       We're not calendar experts and any community help is very much appreciated.
     </ngb-alert>
-
+    
     <p>
       To use any of them, simply provide a different calendar implementation.
       Some calendars (like Hebrew in the example and demo below) also come with i18n support
       to override the way day/week/year numerals and weekday/month names are displayed.
     </p>
-
+    
     <ngbd-code [snippet]="snippets.calendars"></ngbd-code>
-
+    
     <br>
-
-    <p>Here are some demos of the calendars you can use</p>
-
-    <br>
-
-    <ngbd-widget-demo *ngFor="let demo of demos"
-      [id]="demo.id"
-      [demoTitle]="demo.title"
-      [code]="demo.code"
-      [markup]="demo.markup"
-      component="datepicker"
-    >
-      <ng-template [ngComponentOutlet]="demo.type"></ng-template>
-    </ngbd-widget-demo>
-  `,
+    
+      <p>Here are some demos of the calendars you can use</p>
+    
+      <br>
+    
+        @for (demo of demos; track demo) {
+          <ngbd-widget-demo
+            [id]="demo.id"
+            [demoTitle]="demo.title"
+            [code]="demo.code"
+            [markup]="demo.markup"
+            component="datepicker"
+            >
+            <ng-template [ngComponentOutlet]="demo.type"></ng-template>
+          </ngbd-widget-demo>
+        }
+    `,
     standalone: false
 })
 export class NgbdDatepickerCalendarsComponent extends NgbdExamplesPage {

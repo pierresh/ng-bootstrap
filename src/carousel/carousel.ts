@@ -84,28 +84,36 @@ export class NgbSlide {
     },
     template: `
     <ol class="carousel-indicators" [class.sr-only]="!showNavigationIndicators" role="tablist">
-      <li *ngFor="let slide of slides" [class.active]="slide.id === activeId"
+      @for (slide of slides; track slide) {
+        <li [class.active]="slide.id === activeId"
           role="tab" [attr.aria-labelledby]="'slide-' + slide.id" [attr.aria-controls]="'slide-' + slide.id"
           [attr.aria-selected]="slide.id === activeId"
-          (click)="focus();select(slide.id, NgbSlideEventSource.INDICATOR);"></li>
+        (click)="focus();select(slide.id, NgbSlideEventSource.INDICATOR);"></li>
+      }
     </ol>
     <div class="carousel-inner">
-      <div *ngFor="let slide of slides; index as i; count as c" class="carousel-item" [id]="'slide-' + slide.id" role="tabpanel">
-        <span class="sr-only" i18n="Currently selected slide number read by screen reader@@ngb.carousel.slide-number">
+      @for (slide of slides; track slide; let i = $index; let c = $count) {
+        <div class="carousel-item" [id]="'slide-' + slide.id" role="tabpanel">
+          <span class="sr-only" i18n="Currently selected slide number read by screen reader@@ngb.carousel.slide-number">
           Slide {{i + 1}} of {{c}}
         </span>
-        <ng-template [ngTemplateOutlet]="slide.tplRef"></ng-template>
-      </div>
+          <ng-template [ngTemplateOutlet]="slide.tplRef"></ng-template>
+        </div>
+      }
     </div>
-    <a class="carousel-control-prev" role="button" (click)="arrowLeft()" *ngIf="showNavigationArrows">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only" i18n="@@ngb.carousel.previous">Previous</span>
-    </a>
-    <a class="carousel-control-next" role="button" (click)="arrowRight()" *ngIf="showNavigationArrows">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only" i18n="@@ngb.carousel.next">Next</span>
-    </a>
-  `,
+    @if (showNavigationArrows) {
+      <a class="carousel-control-prev" role="button" (click)="arrowLeft()">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only" i18n="@@ngb.carousel.previous">Previous</span>
+      </a>
+    }
+    @if (showNavigationArrows) {
+      <a class="carousel-control-next" role="button" (click)="arrowRight()">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only" i18n="@@ngb.carousel.next">Next</span>
+      </a>
+    }
+    `,
     standalone: false
 })
 export class NgbCarousel implements AfterContentChecked,

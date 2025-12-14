@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Directive, forwardRef, Input} from '@angular/core';
+import {ChangeDetectorRef, Directive, forwardRef, HostBinding, Input} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {NgbButtonLabel} from './label';
@@ -12,8 +12,6 @@ import {NgbButtonLabel} from './label';
 @Directive({
     selector: '[ngbButton][type=checkbox]',
     host: {
-        '[checked]': 'checked',
-        '[disabled]': 'disabled',
         '(change)': 'onInputChange($event)',
         '(focus)': 'focused = true',
         '(blur)': 'focused = false'
@@ -24,11 +22,13 @@ import {NgbButtonLabel} from './label';
 export class NgbCheckBox implements ControlValueAccessor {
   static ngAcceptInputType_disabled: boolean | '';
 
+  @HostBinding('attr.checked')
   checked;
 
   /**
    * If `true`, the checkbox button will be disabled
    */
+  @HostBinding('attr.disabled')
   @Input() disabled = false;
 
   /**

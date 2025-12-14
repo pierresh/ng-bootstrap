@@ -17,14 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <ng-template #showOlderVersions>
-        <tr>
-          <td colspan="3" class="text-center p-1">
-            <button class="btn btn-link m-0" (click)="olderVersionsCollapsed = false">Show older versions</button>
-          </td>
-        </tr>
-      </ng-template>
-      <ng-template [ngIf]="!olderVersionsCollapsed" [ngIfElse]="showOlderVersions">
+      @if (!olderVersionsCollapsed) {
         <tr>
           <th scope="row">1.x.x</th>
           <td>5.0.2</td>
@@ -55,7 +48,13 @@
           <td>9.0.0</td>
           <td>4.4.1</td>
         </tr>
-      </ng-template>
+      } @else {
+        <tr>
+          <td colspan="3" class="text-center p-1">
+            <button class="btn btn-link m-0" (click)="olderVersionsCollapsed = false">Show older versions</button>
+          </td>
+        </tr>
+      }
       <tr>
         <th scope="row">7.x.x, 8.x.x</th>
         <td>10.0.0</td>
@@ -114,19 +113,19 @@
 
   <br>
 
-  <h4>Manual installation</h4>
+    <h4>Manual installation</h4>
 
-  <p>
-    If you prefer not to use schematics or want to add ng-bootstrap to an older project, you'll need to do the
-    following:
-  </p>
+    <p>
+      If you prefer not to use schematics or want to add ng-bootstrap to an older project, you'll need to do the
+      following:
+    </p>
 
-  <ul>
-    <li>Add <code>bootstrap</code> and <code>&#64;ng-bootstrap/ng-bootstrap</code> dependencies from npm</li>
-    <li>Install the <code>&#64;angular/localize</code> polyfill</li>
-    <li>Add bootstrap CSS/SCSS to your project (no javascript is required)</li>
-    <li>Import <code>NgbModule</code> or any other component module like <code>NgbPaginationModule</code> in your
-      application</li>
+    <ul>
+      <li>Add <code>bootstrap</code> and <code>&#64;ng-bootstrap/ng-bootstrap</code> dependencies from npm</li>
+      <li>Install the <code>&#64;angular/localize</code> polyfill</li>
+      <li>Add bootstrap CSS/SCSS to your project (no javascript is required)</li>
+      <li>Import <code>NgbModule</code> or any other component module like <code>NgbPaginationModule</code> in your
+    application</li>
   </ul>
 
   <p>
@@ -144,7 +143,7 @@
         <p>
           You need to add Bootstrap CSS to your application using your preferred way (see
           <a href="https://getbootstrap.com/docs/{{ bsVersion }}/getting-started/download/" target="_blank">Bootstrap
-            instructions</a>).
+          instructions</a>).
         </p>
 
         <p>
@@ -194,7 +193,7 @@
         <p>
           See more details in
           <a href="https://angular.io/guide/i18n#setting-up-localization-with-the-angular-cli" target="_blank">the
-            official documentation</a>.
+          official documentation</a>.
         </p>
 
         <h5>ng-bootstrap</h5>
@@ -229,7 +228,7 @@
     restrictive. Check browser support notes for
     <a href="https://angular.io/guide/browser-support" target="_blank">Angular</a> and
     <a href="https://getbootstrap.com/docs/{{ bsVersion }}/getting-started/browsers-devices/"
-      target="_blank">Bootstrap</a>.
+    target="_blank">Bootstrap</a>.
   </p>
 
   <p>Our code is automatically tested on all supported browsers.</p>
@@ -265,7 +264,7 @@
     doc
     for contribution guidelines. Additionally, for local building and testing information, please see our
     <a href="https://github.com/ng-bootstrap/ng-bootstrap/blob/master/DEVELOPER.md" target="_blank">Developer's
-      Guide</a>.
+    Guide</a>.
   </p>
 
   <ngbd-page-header title="Code of conduct" fragment="code-of-conduct"></ngbd-page-header>
@@ -273,6 +272,6 @@
   <p>
     Please take a moment to read our
     <a href="https://github.com/ng-bootstrap/ng-bootstrap/blob/master/CODE_OF_CONDUCT.md" target="_blank">Code of
-      Conduct</a>.
+    Conduct</a>.
   </p>
 </ngbd-page-wrapper>

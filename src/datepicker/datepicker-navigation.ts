@@ -11,30 +11,38 @@ import {NgbDatepickerI18n} from './datepicker-i18n';
     template: `
     <div class="ngb-dp-arrow">
       <button type="button" class="btn btn-link ngb-dp-arrow-btn" (click)="onClickPrev($event)" [disabled]="prevDisabled"
-              i18n-aria-label="@@ngb.datepicker.previous-month" aria-label="Previous month"
-              i18n-title="@@ngb.datepicker.previous-month" title="Previous month">
+        i18n-aria-label="@@ngb.datepicker.previous-month" aria-label="Previous month"
+        i18n-title="@@ngb.datepicker.previous-month" title="Previous month">
         <span class="ngb-dp-navigation-chevron"></span>
       </button>
     </div>
-    <ngb-datepicker-navigation-select *ngIf="showSelect" class="ngb-dp-navigation-select"
-      [date]="date"
-      [disabled] = "disabled"
-      [months]="selectBoxes.months"
-      [years]="selectBoxes.years"
-      (select)="select.emit($event)">
-    </ngb-datepicker-navigation-select>
-
-    <ng-template *ngIf="!showSelect" ngFor let-month [ngForOf]="months" let-i="index">
-      <div class="ngb-dp-arrow" *ngIf="i > 0"></div>
-      <div class="ngb-dp-month-name">
-        {{ i18n.getMonthLabel(month.firstDate) }}
-      </div>
-      <div class="ngb-dp-arrow" *ngIf="i !== months.length - 1"></div>
-    </ng-template>
+    @if (showSelect) {
+      <ngb-datepicker-navigation-select class="ngb-dp-navigation-select"
+        [date]="date"
+        [disabled] = "disabled"
+        [months]="selectBoxes.months"
+        [years]="selectBoxes.years"
+        (select)="select.emit($event)">
+      </ngb-datepicker-navigation-select>
+    }
+    
+    @for (month of months; track month; let i = $index) {
+      <ng-template *ngIf="!showSelect" let-month [ngForOf]="months" let-i="index">
+        @if (i > 0) {
+          <div class="ngb-dp-arrow"></div>
+        }
+        <div class="ngb-dp-month-name">
+          {{ i18n.getMonthLabel(month.firstDate) }}
+        </div>
+        @if (i !== months.length - 1) {
+          <div class="ngb-dp-arrow"></div>
+        }
+      </ng-template>
+    }
     <div class="ngb-dp-arrow right">
       <button type="button" class="btn btn-link ngb-dp-arrow-btn" (click)="onClickNext($event)" [disabled]="nextDisabled"
-              i18n-aria-label="@@ngb.datepicker.next-month" aria-label="Next month"
-              i18n-title="@@ngb.datepicker.next-month" title="Next month">
+        i18n-aria-label="@@ngb.datepicker.next-month" aria-label="Next month"
+        i18n-title="@@ngb.datepicker.next-month" title="Next month">
         <span class="ngb-dp-navigation-chevron"></span>
       </button>
     </div>

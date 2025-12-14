@@ -41,7 +41,9 @@
     <ng-template ngbPanelHeader>
       <div class="d-flex align-items-center justify-content-between">
         <button ngbPanelToggle class="btn btn-link container-fluid text-left pl-0">Third panel</button>
-        <p *ngIf="disabled" class="text-muted m-0 small">[I'm&nbsp;disabled]</p>
+        @if (disabled) {
+          <p class="text-muted m-0 small">[I'm&nbsp;disabled]</p>
+        }
       </div>
     </ng-template>
     <ng-template ngbPanelContent>

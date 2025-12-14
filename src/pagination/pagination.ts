@@ -181,66 +181,82 @@ export class NgbPaginationPages {
     <ng-template #ellipsis>...</ng-template>
     <ng-template #defaultNumber let-page let-currentPage="currentPage">
       {{ page }}
-      <span *ngIf="page === currentPage" class="sr-only">(current)</span>
+      @if (page === currentPage) {
+        <span class="sr-only">(current)</span>
+      }
     </ng-template>
     <ng-template #defaultPages let-page let-pages="pages" let-disabled="disabled">
-      <li *ngFor="let pageNumber of pages" class="page-item" [class.active]="pageNumber === page"
-        [class.disabled]="isEllipsis(pageNumber) || disabled" [attr.aria-current]="(pageNumber === page ? 'page' : null)">
-        <a *ngIf="isEllipsis(pageNumber)" class="page-link" tabindex="-1" aria-disabled="true">
-          <ng-template [ngTemplateOutlet]="tplEllipsis?.templateRef || ellipsis"
-                      [ngTemplateOutletContext]="{disabled: true, currentPage: page}"></ng-template>
-        </a>
-        <a *ngIf="!isEllipsis(pageNumber)" class="page-link" href (click)="selectPage(pageNumber); $event.preventDefault()"
-          [attr.tabindex]="disabled ? '-1' : null" [attr.aria-disabled]="disabled ? 'true' : null">
-          <ng-template [ngTemplateOutlet]="tplNumber?.templateRef || defaultNumber"
-                      [ngTemplateOutletContext]="{disabled: disabled, $implicit: pageNumber, currentPage: page}"></ng-template>
-        </a>
-      </li>
+      @for (pageNumber of pages; track pageNumber) {
+        <li class="page-item" [class.active]="pageNumber === page"
+          [class.disabled]="isEllipsis(pageNumber) || disabled" [attr.aria-current]="(pageNumber === page ? 'page' : null)">
+          @if (isEllipsis(pageNumber)) {
+            <a class="page-link" tabindex="-1" aria-disabled="true">
+              <ng-template [ngTemplateOutlet]="tplEllipsis?.templateRef || ellipsis"
+              [ngTemplateOutletContext]="{disabled: true, currentPage: page}"></ng-template>
+            </a>
+          }
+          @if (!isEllipsis(pageNumber)) {
+            <a class="page-link" href (click)="selectPage(pageNumber); $event.preventDefault()"
+              [attr.tabindex]="disabled ? '-1' : null" [attr.aria-disabled]="disabled ? 'true' : null">
+              <ng-template [ngTemplateOutlet]="tplNumber?.templateRef || defaultNumber"
+              [ngTemplateOutletContext]="{disabled: disabled, $implicit: pageNumber, currentPage: page}"></ng-template>
+            </a>
+          }
+        </li>
+      }
     </ng-template>
     <ul [class]="'pagination' + (size ? ' pagination-' + size : '')">
-      <li *ngIf="boundaryLinks" class="page-item"
-        [class.disabled]="previousDisabled()">
-        <a aria-label="First" i18n-aria-label="@@ngb.pagination.first-aria" class="page-link" href
-          (click)="selectPage(1); $event.preventDefault()" [attr.tabindex]="previousDisabled() ? '-1' : null"
-          [attr.aria-disabled]="previousDisabled() ? 'true' : null">
-          <ng-template [ngTemplateOutlet]="tplFirst?.templateRef || first"
-                       [ngTemplateOutletContext]="{disabled: previousDisabled(), currentPage: page}"></ng-template>
-        </a>
-      </li>
-
-      <li *ngIf="directionLinks" class="page-item"
-        [class.disabled]="previousDisabled()">
-        <a aria-label="Previous" i18n-aria-label="@@ngb.pagination.previous-aria" class="page-link" href
-          (click)="selectPage(page-1); $event.preventDefault()" [attr.tabindex]="previousDisabled() ? '-1' : null"
-          [attr.aria-disabled]="previousDisabled() ? 'true' : null">
-          <ng-template [ngTemplateOutlet]="tplPrevious?.templateRef || previous"
-                       [ngTemplateOutletContext]="{disabled: previousDisabled()}"></ng-template>
-        </a>
-      </li>
+      @if (boundaryLinks) {
+        <li class="page-item"
+          [class.disabled]="previousDisabled()">
+          <a aria-label="First" i18n-aria-label="@@ngb.pagination.first-aria" class="page-link" href
+            (click)="selectPage(1); $event.preventDefault()" [attr.tabindex]="previousDisabled() ? '-1' : null"
+            [attr.aria-disabled]="previousDisabled() ? 'true' : null">
+            <ng-template [ngTemplateOutlet]="tplFirst?.templateRef || first"
+            [ngTemplateOutletContext]="{disabled: previousDisabled(), currentPage: page}"></ng-template>
+          </a>
+        </li>
+      }
+    
+      @if (directionLinks) {
+        <li class="page-item"
+          [class.disabled]="previousDisabled()">
+          <a aria-label="Previous" i18n-aria-label="@@ngb.pagination.previous-aria" class="page-link" href
+            (click)="selectPage(page-1); $event.preventDefault()" [attr.tabindex]="previousDisabled() ? '-1' : null"
+            [attr.aria-disabled]="previousDisabled() ? 'true' : null">
+            <ng-template [ngTemplateOutlet]="tplPrevious?.templateRef || previous"
+            [ngTemplateOutletContext]="{disabled: previousDisabled()}"></ng-template>
+          </a>
+        </li>
+      }
       <ng-template
         [ngTemplateOutlet]="tplPages?.templateRef || defaultPages"
         [ngTemplateOutletContext]="{ $implicit: page, pages: pages, disabled: disabled }"
-      >
+        >
       </ng-template>
-      <li *ngIf="directionLinks" class="page-item" [class.disabled]="nextDisabled()">
-        <a aria-label="Next" i18n-aria-label="@@ngb.pagination.next-aria" class="page-link" href
-          (click)="selectPage(page+1); $event.preventDefault()" [attr.tabindex]="nextDisabled() ? '-1' : null"
-          [attr.aria-disabled]="nextDisabled() ? 'true' : null">
-          <ng-template [ngTemplateOutlet]="tplNext?.templateRef || next"
-                       [ngTemplateOutletContext]="{disabled: nextDisabled(), currentPage: page}"></ng-template>
-        </a>
-      </li>
-
-      <li *ngIf="boundaryLinks" class="page-item" [class.disabled]="nextDisabled()">
-        <a aria-label="Last" i18n-aria-label="@@ngb.pagination.last-aria" class="page-link" href
-          (click)="selectPage(pageCount); $event.preventDefault()" [attr.tabindex]="nextDisabled() ? '-1' : null"
-          [attr.aria-disabled]="nextDisabled() ? 'true' : null">
-          <ng-template [ngTemplateOutlet]="tplLast?.templateRef || last"
-                       [ngTemplateOutletContext]="{disabled: nextDisabled(), currentPage: page}"></ng-template>
-        </a>
-      </li>
+      @if (directionLinks) {
+        <li class="page-item" [class.disabled]="nextDisabled()">
+          <a aria-label="Next" i18n-aria-label="@@ngb.pagination.next-aria" class="page-link" href
+            (click)="selectPage(page+1); $event.preventDefault()" [attr.tabindex]="nextDisabled() ? '-1' : null"
+            [attr.aria-disabled]="nextDisabled() ? 'true' : null">
+            <ng-template [ngTemplateOutlet]="tplNext?.templateRef || next"
+            [ngTemplateOutletContext]="{disabled: nextDisabled(), currentPage: page}"></ng-template>
+          </a>
+        </li>
+      }
+    
+      @if (boundaryLinks) {
+        <li class="page-item" [class.disabled]="nextDisabled()">
+          <a aria-label="Last" i18n-aria-label="@@ngb.pagination.last-aria" class="page-link" href
+            (click)="selectPage(pageCount); $event.preventDefault()" [attr.tabindex]="nextDisabled() ? '-1' : null"
+            [attr.aria-disabled]="nextDisabled() ? 'true' : null">
+            <ng-template [ngTemplateOutlet]="tplLast?.templateRef || last"
+            [ngTemplateOutletContext]="{disabled: nextDisabled(), currentPage: page}"></ng-template>
+          </a>
+        </li>
+      }
     </ul>
-  `,
+    `,
     standalone: false
 })
 export class NgbPagination implements OnChanges {

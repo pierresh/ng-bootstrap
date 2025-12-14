@@ -9,15 +9,19 @@ import {NavigationEnd} from '@angular/router';
     template: `
   <a role="button" class="btn btn-outline-primary ml-3" id="navigate-home" href="#/">Menu</a>
   <div [hidden]="isHidden">
-    <div *ngFor="let route of routes" class="card m-1 d-inline-block" style="width: 290px;">
-      <div class="card-header">{{route.path}}</div>
-      <ul class="list-group list-group-flush">
-        <li *ngFor="let childRoute of route.children" class="list-group-item">
-           <a href="#{{route.path}}/{{childRoute.path}}" id="navigate-{{route.path}}-{{childRoute.path}}"
-            class="list-group-link">{{childRoute.path}}</a>
-        </li>
-      </ul>
-    </div>
+    @for (route of routes; track route) {
+      <div class="card m-1 d-inline-block" style="width: 290px;">
+        <div class="card-header">{{route.path}}</div>
+        <ul class="list-group list-group-flush">
+          @for (childRoute of route.children; track childRoute) {
+            <li class="list-group-item">
+              <a href="#{{route.path}}/{{childRoute.path}}" id="navigate-{{route.path}}-{{childRoute.path}}"
+              class="list-group-link">{{childRoute.path}}</a>
+            </li>
+          }
+        </ul>
+      </div>
+    }
   </div>
   `,
     standalone: false

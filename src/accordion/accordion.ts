@@ -218,21 +218,23 @@ export class NgbRefDirective implements OnInit, OnDestroy {
         {{panel.title}}<ng-template [ngTemplateOutlet]="panel.titleTpl?.templateRef"></ng-template>
       </button>
     </ng-template>
-    <ng-template ngFor let-panel [ngForOf]="panels">
+    @for (panel of panels; track panel) {
       <div [class]="'card ' + (panel.cardClass || '')">
         <div role="tab" id="{{panel.id}}-header" [class]="'card-header ' + (panel.type ? 'bg-'+panel.type: type ? 'bg-'+type : '')">
           <ng-template [ngTemplateOutlet]="panel.headerTpl?.templateRef || t"
-                       [ngTemplateOutletContext]="{$implicit: panel, opened: panel.isOpen}"></ng-template>
+          [ngTemplateOutletContext]="{$implicit: panel, opened: panel.isOpen}"></ng-template>
         </div>
-        <div id="{{panel.id}}" (ngbRef)="panel.panelDiv = $event" role="tabpanel" [attr.aria-labelledby]="panel.id + '-header'"
-             *ngIf="!destroyOnHide || panel.isOpen || panel.transitionRunning">
-          <div class="card-body">
-               <ng-template [ngTemplateOutlet]="panel.contentTpl?.templateRef || null"></ng-template>
+        @if (!destroyOnHide || panel.isOpen || panel.transitionRunning) {
+          <div id="{{panel.id}}" (ngbRef)="panel.panelDiv = $event" role="tabpanel" [attr.aria-labelledby]="panel.id + '-header'"
+            >
+            <div class="card-body">
+              <ng-template [ngTemplateOutlet]="panel.contentTpl?.templateRef || null"></ng-template>
+            </div>
           </div>
-        </div>
+        }
       </div>
-    </ng-template>
-  `,
+    }
+    `,
     standalone: false
 })
 export class NgbAccordion implements AfterContentChecked {
